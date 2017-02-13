@@ -22,6 +22,16 @@ namespace CSharp_Terminübersicht
             this.Close();
         }
 
+        private void contacts_Click(object sender, EventArgs e)
+        {
+            this.Show(new Contacts());
+        }
+
+        private void dateview_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }
