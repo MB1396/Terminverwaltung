@@ -1,0 +1,3 @@
+C:\Users\brinkmann\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\bin\Debug\CSharp_Terminübersicht.exe.config
+C:\Users\brinkmann\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.exe
+C:\Users\brinkmann\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.pdb
