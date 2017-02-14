@@ -1,6 +1,6 @@
 ﻿namespace CSharp_Terminübersicht
 {
-    partial class frmAPT
+    partial class Termin
     {
         /// <summary>
         /// Erforderliche Designervariable.

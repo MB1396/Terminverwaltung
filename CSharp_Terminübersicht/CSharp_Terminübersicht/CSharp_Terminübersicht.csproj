@@ -50,11 +50,17 @@
     <Compile Include="Contacts.Designer.cs">
       <DependentUpon>Contacts.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAPT.cs">
+    <Compile Include="DateViewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAPT.Designer.cs">
-      <DependentUpon>frmAPT.cs</DependentUpon>
+    <Compile Include="DateViewer.Designer.cs">
+      <DependentUpon>DateViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Termin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Termin.Designer.cs">
+      <DependentUpon>Termin.cs</DependentUpon>
     </Compile>
     <Compile Include="Hub.cs">
       <SubType>Form</SubType>
@@ -67,8 +73,11 @@
     <EmbeddedResource Include="Contacts.resx">
       <DependentUpon>Contacts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAPT.resx">
-      <DependentUpon>frmAPT.cs</DependentUpon>
+    <EmbeddedResource Include="DateViewer.resx">
+      <DependentUpon>DateViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Termin.resx">
+      <DependentUpon>Termin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Hub.resx">
       <DependentUpon>Hub.cs</DependentUpon>

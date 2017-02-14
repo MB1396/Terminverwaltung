@@ -28,3 +28,13 @@ C:\Users\MBrinkmann.BKH\Desktop\CSharp_Terminübersicht\CSharp_Terminübersicht\
 C:\Users\MBrinkmann.BKH\Source\Repos\Terminverwaltung\CSharp_Terminübersicht\CSharp_Terminübersicht\bin\Debug\CSharp_Terminübersicht.exe.config
 C:\Users\MBrinkmann.BKH\Source\Repos\Terminverwaltung\CSharp_Terminübersicht\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.exe
 C:\Users\MBrinkmann.BKH\Source\Repos\Terminverwaltung\CSharp_Terminübersicht\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.pdb
+C:\Users\brinkmann\Source\Repos\Terminverwaltung\CSharp_Terminübersicht\CSharp_Terminübersicht\bin\Debug\CSharp_Terminübersicht.exe.config
+C:\Users\brinkmann\Source\Repos\Terminverwaltung\CSharp_Terminübersicht\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.exe
+C:\Users\brinkmann\Source\Repos\Terminverwaltung\CSharp_Terminübersicht\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.pdb
+C:\Users\brinkmann\Source\Repos\Terminverwaltung\CSharp_Terminübersicht\CSharp_Terminübersicht\bin\Debug\CSharp_Terminübersicht.exe
+C:\Users\brinkmann\Source\Repos\Terminverwaltung\CSharp_Terminübersicht\CSharp_Terminübersicht\bin\Debug\CSharp_Terminübersicht.pdb
+C:\Users\brinkmann\Source\Repos\Terminverwaltung\CSharp_Terminübersicht\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.Contacts.resources
+C:\Users\brinkmann\Source\Repos\Terminverwaltung\CSharp_Terminübersicht\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.hub.resources
+C:\Users\brinkmann\Source\Repos\Terminverwaltung\CSharp_Terminübersicht\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.Properties.Resources.resources
+C:\Users\brinkmann\Source\Repos\Terminverwaltung\CSharp_Terminübersicht\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.csproj.GenerateResource.Cache
+C:\Users\brinkmann\Source\Repos\Terminverwaltung\CSharp_Terminübersicht\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.Termin.resources

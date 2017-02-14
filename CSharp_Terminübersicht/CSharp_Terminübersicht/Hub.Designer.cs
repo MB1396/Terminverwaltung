@@ -31,6 +31,7 @@
             this.contacts = new System.Windows.Forms.Button();
             this.dateview = new System.Windows.Forms.Button();
             this.end = new System.Windows.Forms.Button();
+            this.newdate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // contacts
@@ -41,15 +42,17 @@
             this.contacts.TabIndex = 0;
             this.contacts.Text = "Kontaktdaten";
             this.contacts.UseVisualStyleBackColor = true;
+            this.contacts.Click += new System.EventHandler(this.contacts_Click);
             // 
             // dateview
             // 
-            this.dateview.Location = new System.Drawing.Point(69, 146);
+            this.dateview.Location = new System.Drawing.Point(69, 190);
             this.dateview.Name = "dateview";
             this.dateview.Size = new System.Drawing.Size(246, 63);
             this.dateview.TabIndex = 1;
             this.dateview.Text = "Terminansicht";
             this.dateview.UseVisualStyleBackColor = true;
+            this.dateview.Click += new System.EventHandler(this.dateview_Click);
             // 
             // end
             // 
@@ -61,11 +64,22 @@
             this.end.UseVisualStyleBackColor = true;
             this.end.Click += new System.EventHandler(this.end_Click);
             // 
+            // newdate
+            // 
+            this.newdate.Location = new System.Drawing.Point(69, 121);
+            this.newdate.Name = "newdate";
+            this.newdate.Size = new System.Drawing.Size(246, 63);
+            this.newdate.TabIndex = 3;
+            this.newdate.Text = "Termin eintragen";
+            this.newdate.UseVisualStyleBackColor = true;
+            this.newdate.Click += new System.EventHandler(this.newdate_Click);
+            // 
             // hub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(386, 408);
+            this.Controls.Add(this.newdate);
             this.Controls.Add(this.end);
             this.Controls.Add(this.dateview);
             this.Controls.Add(this.contacts);
@@ -80,5 +94,6 @@
         private System.Windows.Forms.Button contacts;
         private System.Windows.Forms.Button dateview;
         private System.Windows.Forms.Button end;
+        private System.Windows.Forms.Button newdate;
     }
 }
