@@ -11,12 +11,12 @@ using System.Collections;
 
 namespace CSharp_Terminübersicht
 {
-    public partial class Termin : Form
+    public partial class frmAPT : Form
     {
         Hashtable HashAPT = new Hashtable();
         int cntAPT = 0;
 
-        public Termin()
+        public frmAPT()
         {
             InitializeComponent();
             this.Text = "Terminverwaltung";
