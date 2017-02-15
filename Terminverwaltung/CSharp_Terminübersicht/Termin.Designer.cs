@@ -1,6 +1,6 @@
 ﻿namespace CSharp_Terminübersicht
 {
-    partial class frmAPT
+    partial class Termin
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -208,7 +208,7 @@
             this.lstAPT.TabIndex = 16;
             this.lstAPT.SelectedIndexChanged += new System.EventHandler(this.lstAPT_SelectedIndexChanged);
             // 
-            // frmAPT
+            // Termin
             // 
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(548, 448);
@@ -228,7 +228,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.DTPicker);
             this.Controls.Add(this.lblAPT_Caption);
-            this.Name = "frmAPT";
+            this.Name = "Termin";
             this.ResumeLayout(false);
             this.PerformLayout();
 
