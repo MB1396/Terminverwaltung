@@ -1,0 +1,5 @@
+﻿################################################################################
+# Diese .gitignore-Datei wurde von Microsoft(R) Visual Studio automatisch erstellt.
+################################################################################
+
+/CSharp_Terminübersicht/obj/Debug/CSharp_Terminübersicht.csprojResolveAssemblyReference.cache

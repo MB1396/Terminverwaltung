@@ -9,3 +9,15 @@ C:\Users\brinkmann\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Termin�
 C:\Users\brinkmann\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\bin\Debug\CSharp_Terminübersicht.exe
 C:\Users\brinkmann\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\bin\Debug\CSharp_Terminübersicht.pdb
 C:\Users\brinkmann\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.Termin.resources
+C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\bin\Debug\CSharp_Terminübersicht.exe.config
+C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.exe
+C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.pdb
+C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\bin\Debug\CSharp_Terminübersicht.exe
+C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\bin\Debug\CSharp_Terminübersicht.pdb
+C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\Terminverwaltung.csprojResolveAssemblyReference.cache
+C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.Contacts.resources
+C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.DateViewer.resources
+C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.Termin.resources
+C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.hub.resources
+C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.Properties.Resources.resources
+C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\Terminverwaltung.csproj.GenerateResource.Cache
