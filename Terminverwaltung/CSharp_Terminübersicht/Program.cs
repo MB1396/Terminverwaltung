@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace CSharp_Terminübersicht
 {
@@ -14,6 +15,10 @@ namespace CSharp_Terminübersicht
         [STAThread]
         static void Main()
         {
+            OleDbConnection dbConnect = null;
+            bool dbOpen = false;
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new hub());

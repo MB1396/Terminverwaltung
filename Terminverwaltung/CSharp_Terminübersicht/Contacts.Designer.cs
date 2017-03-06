@@ -70,9 +70,9 @@
             this.anschrift.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.anschrift.Location = new System.Drawing.Point(12, 79);
             this.anschrift.Name = "anschrift";
-            this.anschrift.Size = new System.Drawing.Size(52, 13);
+            this.anschrift.Size = new System.Drawing.Size(57, 13);
             this.anschrift.TabIndex = 2;
-            this.anschrift.Text = "Adresse";
+            this.anschrift.Text = "Anschrift";
             // 
             // phone
             // 
