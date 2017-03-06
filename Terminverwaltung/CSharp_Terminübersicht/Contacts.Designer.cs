@@ -39,7 +39,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ProfilePic = new System.Windows.Forms.PictureBox();
             this.nachname = new System.Windows.Forms.Label();
             this.Contactdate = new System.Windows.Forms.GroupBox();
             this.save = new System.Windows.Forms.Button();
@@ -49,7 +49,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePic)).BeginInit();
             this.Contactdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -150,13 +150,13 @@
             this.textBox5.Size = new System.Drawing.Size(163, 22);
             this.textBox5.TabIndex = 11;
             // 
-            // pictureBox1
+            // ProfilePic
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(391, 79);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(124, 139);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
+            this.ProfilePic.Location = new System.Drawing.Point(391, 79);
+            this.ProfilePic.Name = "ProfilePic";
+            this.ProfilePic.Size = new System.Drawing.Size(124, 139);
+            this.ProfilePic.TabIndex = 12;
+            this.ProfilePic.TabStop = false;
             // 
             // nachname
             // 
@@ -172,7 +172,7 @@
             // 
             this.Contactdate.Controls.Add(this.nachname);
             this.Contactdate.Controls.Add(this.vorname);
-            this.Contactdate.Controls.Add(this.pictureBox1);
+            this.Contactdate.Controls.Add(this.ProfilePic);
             this.Contactdate.Controls.Add(this.anschrift);
             this.Contactdate.Controls.Add(this.textBox5);
             this.Contactdate.Controls.Add(this.textBox1);
@@ -192,12 +192,14 @@
             // 
             // save
             // 
-            this.save.Location = new System.Drawing.Point(295, 501);
+            this.save.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.save.Location = new System.Drawing.Point(276, 487);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(93, 26);
+            this.save.Size = new System.Drawing.Size(120, 40);
             this.save.TabIndex = 16;
             this.save.Text = "Speichern";
             this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
             // 
             // dataGridView1
             // 
@@ -254,7 +256,7 @@
             this.Controls.Add(this.kontaktdaten);
             this.Name = "Contacts";
             this.Text = "Kontaktansicht";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePic)).EndInit();
             this.Contactdate.ResumeLayout(false);
             this.Contactdate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -276,7 +278,7 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ProfilePic;
         private System.Windows.Forms.Label nachname;
         private System.Windows.Forms.GroupBox Contactdate;
         private System.Windows.Forms.Button save;
