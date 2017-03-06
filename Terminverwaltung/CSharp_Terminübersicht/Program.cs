@@ -15,15 +15,26 @@ namespace CSharp_Terminübersicht
         [STAThread]
         static void Main()
         {
-            OleDbConnection dbConnect = null;
-            bool dbOpen = false;
+            DBConnect connection = new DBConnect();
 
+            //OleDbConnection dbConnect = null;
+            //bool dbOpen = false;
+            //string strCon = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Environment.CurrentDirectory.ToString() + @"\DB_Termine.accdb";
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new hub());
+            //dbConnect = new OleDbConnection(strCon);
+            //dbConnect.Open();
+            //dbOpen = true;
 
-            //Console.WriteLine("Hallo");
+            if (connection.dbOpen == true)
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new hub());
+            }
+            else
+            {
+                MessageBox.Show("Fehler bei Datenbankverbindung");
+            }
         }
     }
 }

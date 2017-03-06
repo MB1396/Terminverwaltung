@@ -20,3 +20,5 @@ C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Termi
 C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.hub.resources
 C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.Properties.Resources.resources
 C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\Terminverwaltung.csproj.GenerateResource.Cache
+C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\bin\Debug\DB_Termine.accdb
+C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\Terminverwaltung.csprojResolveAssemblyReference.cache

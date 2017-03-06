@@ -36,6 +36,7 @@
             // 
             // contacts
             // 
+            this.contacts.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.contacts.Location = new System.Drawing.Point(69, 52);
             this.contacts.Name = "contacts";
             this.contacts.Size = new System.Drawing.Size(246, 63);
@@ -46,6 +47,7 @@
             // 
             // dateview
             // 
+            this.dateview.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.dateview.Location = new System.Drawing.Point(69, 190);
             this.dateview.Name = "dateview";
             this.dateview.Size = new System.Drawing.Size(246, 63);
@@ -56,6 +58,7 @@
             // 
             // end
             // 
+            this.end.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.end.Location = new System.Drawing.Point(200, 319);
             this.end.Name = "end";
             this.end.Size = new System.Drawing.Size(174, 61);
@@ -66,6 +69,7 @@
             // 
             // newdate
             // 
+            this.newdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.newdate.Location = new System.Drawing.Point(69, 121);
             this.newdate.Name = "newdate";
             this.newdate.Size = new System.Drawing.Size(246, 63);
