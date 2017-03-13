@@ -15,7 +15,7 @@ namespace CSharp_Terminübersicht
         [STAThread]
         static void Main()
         {
-            DBConnect connection = new DBConnect();
+            //DBConnect connection = new DBConnect();
 
             //OleDbConnection dbConnect = null;
             //bool dbOpen = false;
@@ -25,16 +25,10 @@ namespace CSharp_Terminübersicht
             //dbConnect.Open();
             //dbOpen = true;
 
-            if (connection.dbOpen == true)
-            {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new hub());
-            }
-            else
-            {
-                MessageBox.Show("Fehler bei Datenbankverbindung");
-            }
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new hub());
+
         }
     }
 }

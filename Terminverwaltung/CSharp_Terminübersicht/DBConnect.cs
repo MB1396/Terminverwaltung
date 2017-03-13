@@ -31,5 +31,28 @@ namespace CSharp_Terminübersicht
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public Boolean fCreateCommand(string cmd)
+        {
+            OleDbCommand Command = new OleDbCommand();
+            Command.CommandText = cmd;
+
+            try
+            {
+
+                if (dbOpen == true)
+                {
+                    OleDbDataReader Reader;
+                    Reader = Command.ExecuteReader();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return false;
+        }
     }
 }

@@ -13,9 +13,17 @@ namespace CSharp_Terminübersicht
 {
     public partial class hub : Form
     {
+        DBConnect Connection = new DBConnect();
         public hub()
         {
             InitializeComponent();
+            //DBConnect Connection = new DBConnect();
+            if(Connection.dbOpen != true)
+            {
+                MessageBox.Show("Fehler bei Datenbankverbindung");
+                Connection = null;
+                this.Close();
+            }
         }
 
         private void end_Click(object sender, EventArgs e)

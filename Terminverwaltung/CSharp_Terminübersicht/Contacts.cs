@@ -8,14 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace CSharp_Terminübersicht
 {
     public partial class Contacts : Form
     {
+        DBConnect Connection = new DBConnect();
         public Contacts()
         {
+            //private BindingSource bindingSource1 = new BindingSource();
+
             InitializeComponent();
+            DataSet myDS = new DataSet("Contacts");
+            this.dataGridView1.DataSource = "Select * From Contacts";
         }
 
         private void save_Click(object sender, EventArgs e)
@@ -26,19 +32,9 @@ namespace CSharp_Terminübersicht
             strValues = "Values (" + this.Name.ToString().Trim() + "," + this.vorname.ToString().Trim() + "," + this.anschrift.ToString().Trim() + "," +
                         this.phone.ToString().Trim() + "," + this.mail.ToString().Trim() + "," + this.ProfilePic.ToString().Trim() + ")";
 
-            OleDbCommand dbCommand = null;
-            OleDbDataReader dbReader = null;
-
-            //dbCommand = dbConnect.CreateCommand();
-            //dbCommand.CommandText = Convert.ToString(strInsert + strValues); //"Insert Into Kontakte Values (1, 'Goertz', 'Pascal' , 'Garzweiler Allee' , 41363 , 'Juechen' , '1234567' , 'BlaBla.de' );";
-
-            dbReader = dbCommand.ExecuteReader();
-            while (dbReader.Read())
-            {
-                MessageBox.Show(dbReader.GetString(1));
-            }
-
-
+            Connection.fCreateCommand(strInsert + " " + strValues);
         }
+
+       
     }
 }
