@@ -25,6 +25,7 @@ namespace CSharp_Terminübersicht
             //dbConnect.Open();
             //dbOpen = true;
 
+            //Test
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new hub());
