@@ -10,41 +10,49 @@ namespace CSharp_Terminübersicht
 {
     public class DBConnect
     {
-        public string strCon = "";
+        public static OleDbConnection Connection;
         public Boolean dbOpen = false;
 
         public DBConnect()
         {
-            strCon = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Environment.CurrentDirectory.ToString() + @"\DB_Termine.accdb";
-            OleDbConnection Connection;
-
-            Connection = new OleDbConnection(strCon);
-
             try
             {
+                Connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Environment.CurrentDirectory.ToString() + @"\DB_Termine.accdb");
                 Connection.Open();
                 dbOpen = true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                dbOpen = false;
                 MessageBox.Show(ex.Message);
+                dbOpen = false;
             }
         }
 
+        public OleDbConnection getConn()
+        {
+            return Connection;
+        }
+
+        public void fCloseConnection()
+        {
+            if (Connection != null && dbOpen == true)
+                Connection.Close();
+        }
+
+
+
+
+
         public Boolean fCreateCommand(string cmd)
         {
-            OleDbCommand Command = new OleDbCommand();
-            Command.CommandText = cmd;
+            OleDbCommand Command = new OleDbCommand(cmd, getConn());
 
             try
             {
-
                 if (dbOpen == true)
                 {
                     OleDbDataReader Reader;
                     Reader = Command.ExecuteReader();
-
                 }
             }
             catch (Exception ex)

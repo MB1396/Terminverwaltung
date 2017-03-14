@@ -8,20 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
-using System.Data.SqlClient;
 
 namespace CSharp_Terminübersicht
 {
     public partial class Contacts : Form
     {
-        DBConnect Connection = new DBConnect();
+        DBConnect connection = new DBConnect();
         public Contacts()
         {
-            //private BindingSource bindingSource1 = new BindingSource();
-
             InitializeComponent();
-            DataSet myDS = new DataSet("Contacts");
-            this.dataGridView1.DataSource = "Select * From Contacts";
         }
 
         private void save_Click(object sender, EventArgs e)
@@ -29,10 +24,29 @@ namespace CSharp_Terminübersicht
             string strInsert = "", strValues = "";
             
             strInsert = "Insert Into Kontakte ";
-            strValues = "Values (" + this.Name.ToString().Trim() + "," + this.vorname.ToString().Trim() + "," + this.anschrift.ToString().Trim() + "," +
-                        this.phone.ToString().Trim() + "," + this.mail.ToString().Trim() + "," + this.ProfilePic.ToString().Trim() + ")";
+            strValues = "Values (" + this.txtName.Text.ToString().Trim() + "," + this.txtVorname.Text.ToString().Trim() + "," + this.txtAnschrift.Text.ToString().Trim() + "," +
+                        this.txtTelefon.Text.ToString().Trim() + "," + this.txtMail.Text.ToString().Trim() + ")"; //+ "," + this.ProfilePic.ToString().Trim() + ")";
 
-            Connection.fCreateCommand(strInsert + " " + strValues);
+            connection.fCreateCommand(strInsert + " " + strValues);
+        }
+
+
+
+
+        private void Contacts_Load(object sender, EventArgs e)
+        {
+            // TODO: Diese Codezeile lädt Daten in die Tabelle "dB_KTKDataSet.Kontakte". Sie können sie bei Bedarf verschieben oder entfernen.
+            this.kontakteTableAdapter.Fill(this.dB_KTKDataSet.Kontakte);
+
+        }
+
+        private void fClear()
+        {
+            this.txtName.Text = "";
+            this.txtVorname.Text = "";
+            this.txtAnschrift.Text = "";
+            this.txtTelefon.Text = "";
+            this.txtMail.Text = "";
         }
 
        

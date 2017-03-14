@@ -57,6 +57,11 @@
       <DependentUpon>DateViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnect.cs" />
+    <Compile Include="DB_KTKDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_KTKDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Termin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +97,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DB_KTKDataSet.xsc">
+      <DependentUpon>DB_KTKDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DB_KTKDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_KTKDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_KTKDataSet.xss">
+      <DependentUpon>DB_KTKDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
