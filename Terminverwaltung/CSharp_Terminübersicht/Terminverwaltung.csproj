@@ -57,10 +57,10 @@
       <DependentUpon>DateViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnect.cs" />
-    <Compile Include="DB_KTKDataSet.Designer.cs">
+    <Compile Include="DB_TermineDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DB_KTKDataSet.xsd</DependentUpon>
+      <DependentUpon>DB_TermineDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Termin.cs">
       <SubType>Form</SubType>
@@ -97,16 +97,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="DB_KTKDataSet.xsc">
-      <DependentUpon>DB_KTKDataSet.xsd</DependentUpon>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="DB_TermineDataSet.xsc">
+      <DependentUpon>DB_TermineDataSet.xsd</DependentUpon>
     </None>
-    <None Include="DB_KTKDataSet.xsd">
+    <None Include="DB_TermineDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DB_KTKDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>DB_TermineDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DB_KTKDataSet.xss">
-      <DependentUpon>DB_KTKDataSet.xsd</DependentUpon>
+    <None Include="DB_TermineDataSet.xss">
+      <DependentUpon>DB_TermineDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
