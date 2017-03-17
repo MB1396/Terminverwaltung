@@ -19,6 +19,7 @@ namespace CSharp_Terminübersicht
         public Contacts()
         {
             InitializeComponent();
+            this.txtName.Focus();
         }
 
         private void save_Click(object sender, EventArgs e)
@@ -70,6 +71,7 @@ namespace CSharp_Terminübersicht
         {
             // TODO: Diese Codezeile lädt Daten in die Tabelle "dB_TermineDataSet.Kontakte". Sie können sie bei Bedarf verschieben oder entfernen.
             this.kontakteTableAdapter.Fill(this.dB_TermineDataSet.Kontakte);
+
             // TODO: Diese Codezeile lädt Daten in die Tabelle "dB_KTKDS321.Kontakte". Sie können sie bei Bedarf verschieben oder entfernen.
             //this.kontakteTableAdapter1.Fill(this.dB_KTKDS321.Kontakte);
         }
@@ -113,6 +115,25 @@ namespace CSharp_Terminübersicht
                 mail = this.txtMail.Text.ToString().Trim();
 
             return "VALUES ('" + name + "','" + vorname + "','" + anschrift + "','" + telefon + "','" + mail + "');";
+        }
+
+        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            //OleDbCommand cmd = new OleDbCommand();
+            //OleDbDataReader rde;
+            //cmd.CommandText = "Select * From Kontakte Where KTK_Key = " + dataGridView1.Rows[e.RowIndex].Cells["KTK_Key"].Value;
+
+            //rde = cmd.ExecuteReader();
+            //while (rde.Read())
+            //{
+            //    this.txtName.Text = rde.GetString(1);
+            //    this.txtVorname.Text = rde.GetString(2);
+            //    this.txtAnschrift.Text = rde.GetString(3);
+            //    this.txtTelefon.Text = rde.GetString(4);
+            //    this.txtMail.Text = rde.GetString(5);
+            //}
+
+            
         }
        
     }

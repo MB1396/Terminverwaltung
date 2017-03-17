@@ -45,9 +45,6 @@
             this.Contactdate = new System.Windows.Forms.GroupBox();
             this.save = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dB_TermineDataSet = new CSharp_Terminübersicht.DB_TermineDataSet();
-            this.kontakteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kontakteTableAdapter = new CSharp_Terminübersicht.DB_TermineDataSetTableAdapters.KontakteTableAdapter();
             this.cloName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cloVorname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cloAnschrift = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,11 +56,14 @@
             this.kTKAnschriftDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kTKTelefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kTKEMailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kontakteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dB_TermineDataSet = new CSharp_Terminübersicht.DB_TermineDataSet();
+            this.kontakteTableAdapter = new CSharp_Terminübersicht.DB_TermineDataSetTableAdapters.KontakteTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePic)).BeginInit();
             this.Contactdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dB_TermineDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kontakteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dB_TermineDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // vorname
@@ -239,20 +239,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(668, 126);
             this.dataGridView1.TabIndex = 17;
-            // 
-            // dB_TermineDataSet
-            // 
-            this.dB_TermineDataSet.DataSetName = "DB_TermineDataSet";
-            this.dB_TermineDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // kontakteBindingSource
-            // 
-            this.kontakteBindingSource.DataMember = "Kontakte";
-            this.kontakteBindingSource.DataSource = this.dB_TermineDataSet;
-            // 
-            // kontakteTableAdapter
-            // 
-            this.kontakteTableAdapter.ClearBeforeFill = true;
+            this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             // 
             // cloName
             // 
@@ -331,6 +318,20 @@
             this.kTKEMailDataGridViewTextBoxColumn.Name = "kTKEMailDataGridViewTextBoxColumn";
             this.kTKEMailDataGridViewTextBoxColumn.Visible = false;
             // 
+            // kontakteBindingSource
+            // 
+            this.kontakteBindingSource.DataMember = "Kontakte";
+            this.kontakteBindingSource.DataSource = this.dB_TermineDataSet;
+            // 
+            // dB_TermineDataSet
+            // 
+            this.dB_TermineDataSet.DataSetName = "DB_TermineDataSet";
+            this.dB_TermineDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // kontakteTableAdapter
+            // 
+            this.kontakteTableAdapter.ClearBeforeFill = true;
+            // 
             // Contacts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,8 +348,8 @@
             this.Contactdate.ResumeLayout(false);
             this.Contactdate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dB_TermineDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kontakteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dB_TermineDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
