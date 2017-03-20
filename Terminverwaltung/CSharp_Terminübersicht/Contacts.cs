@@ -136,7 +136,25 @@ namespace CSharp_Terminübersicht
            // int tmpRow = dataGridView1.Rows.GetRowCount(DataGridViewElementStates.Selected);
             int tmpKey = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["kTKKeyDataGridViewTextBoxColumn"].Value);
             OleDbCommand cmd = new OleDbCommand("Select * From Kontakte Where KTK_Key = " + tmpKey, connection.getConn());
-            OleDbDataAdapter adapter;
+            OleDbDataReader reader;
+            string result;
+            //OleDbDataAdapter adapter = new OleDbDataAdapter();
+            //adapter.SelectCommand = cmd;
+
+            reader = cmd.ExecuteReader();
+            while(reader.Read())
+            {
+                result = reader.GetString(1) + ";" + reader.GetString(2);
+                MessageBox.Show(result);
+                //this.txtName.Text = reader.GetString(1);
+                //this.txtVorname.Text = reader.GetString(2);
+                //this.txtAnschrift.Text = reader.GetString(3);
+                //this.txtTelefon.Text = reader.GetString(4);
+                //this.txtMail.Text = reader.GetString(5);
+               // MessageBox.Show(result);
+            }
+
+            //this.txtName.Text
 
             //if (tmpRow > 0)
             //{
