@@ -15,7 +15,6 @@ namespace CSharp_Terminübersicht
     public partial class Contacts : Form
     {
         DBConnect connection = new DBConnect();
-        SqlDataAdapter adapter = new SqlDataAdapter();
         public Contacts()
         {
             InitializeComponent();
@@ -26,41 +25,35 @@ namespace CSharp_Terminübersicht
         {
             string strInsert = "", strValues = "";
             Boolean fSuccess = false;
+            OleDbDataAdapter adapter;
+            DataTable DT = new DataTable();
             
-            
+
+
             strInsert = "Insert Into Kontakte (KTK_Name, KTK_Vorname, KTK_Anschrift, KTK_Telefon, KTK_EMail )";
             strValues = fCheckFields(); //"Values (" + this.txtName.Text.ToString().Trim() + "," + 
-                                     //this.txtVorname.Text.ToString().Trim() + "," + 
-                                     //this.txtAnschrift.Text.ToString().Trim() + "," +
-                                     //this.txtTelefon.Text.ToString().Trim() + "," + 
-                                     //this.txtMail.Text.ToString().Trim() + ")";        //+ "," + this.ProfilePic.ToString().Trim() + ")";
+            //this.txtVorname.Text.ToString().Trim() + "," + 
+            //this.txtAnschrift.Text.ToString().Trim() + "," +
+            //this.txtTelefon.Text.ToString().Trim() + "," + 
+            //this.txtMail.Text.ToString().Trim() + ")";        //+ "," + this.ProfilePic.ToString().Trim() + ")";
 
             fSuccess = connection.fCreateCommand(strInsert + " " + strValues);
             if (fSuccess == true)
             {
                 try
                 {
-                    //SqlCommand cmd = new SqlCommand("Select * From Kontakte", connection.getConn());
-                    //DataTable tbl = new DataTable();
-                    //adapter.Fill(tbl);
-
-                    //BindingSource bs = new BindingSource();
-                    //bs.DataSource = tbl;
-                    //dataGridView1.DataSource = bs;
-
-                    //this.kontakteTableAdapter.Fill(this.dB_TermineDataSet.Kontakte);
-                    this.kontakteTableAdapter.Update(this.dB_TermineDataSet);
-
-                    
-                    //DataTable tbl = dB_TermineDataSet.Tables["Kontakte"];
-                    //dataGridView1.DataSource = adapter.Update(tbl.Select(null, null, DataViewRowState.Added));
+                    adapter = new OleDbDataAdapter("Select * From Kontakte", connection.getConn());
+                    adapter.Fill(DT);
+                    this.dataGridView1.DataSource = DT;
+                    this.dataGridView1.EndEdit();
+                    this.dataGridView1.Refresh();
                     fClear();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-                
+
             }
         }
 
@@ -71,9 +64,6 @@ namespace CSharp_Terminübersicht
         {
             // TODO: Diese Codezeile lädt Daten in die Tabelle "dB_TermineDataSet.Kontakte". Sie können sie bei Bedarf verschieben oder entfernen.
             this.kontakteTableAdapter.Fill(this.dB_TermineDataSet.Kontakte);
-
-            // TODO: Diese Codezeile lädt Daten in die Tabelle "dB_KTKDS321.Kontakte". Sie können sie bei Bedarf verschieben oder entfernen.
-            //this.kontakteTableAdapter1.Fill(this.dB_KTKDS321.Kontakte);
         }
 
         private void fClear()
@@ -119,6 +109,11 @@ namespace CSharp_Terminübersicht
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
+            //int tmpKey;
+
+            //tmpKey = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["KTK_Key"].Value);
+
+
             //OleDbCommand cmd = new OleDbCommand();
             //OleDbDataReader rde;
             //cmd.CommandText = "Select * From Kontakte Where KTK_Key = " + dataGridView1.Rows[e.RowIndex].Cells["KTK_Key"].Value;
@@ -133,8 +128,27 @@ namespace CSharp_Terminübersicht
             //    this.txtMail.Text = rde.GetString(5);
             //}
 
-            
+
         }
-       
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           // int tmpRow = dataGridView1.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            int tmpKey = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["kTKKeyDataGridViewTextBoxColumn"].Value);
+            OleDbCommand cmd = new OleDbCommand("Select * From Kontakte Where KTK_Key = " + tmpKey, connection.getConn());
+            OleDbDataAdapter adapter;
+
+            //if (tmpRow > 0)
+            //{
+            //    System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            //    for (int i = 0; i < tmpRow; i++)
+            //    {
+            //        sb.Append("Row: ");
+            //        sb.Append(dataGridView1.SelectedRows[i].Index.ToString());
+            //        sb.Append(Environment.NewLine);
+            //    }
+            //}
+        }
+
     }
 }
