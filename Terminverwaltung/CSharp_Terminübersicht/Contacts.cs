@@ -138,19 +138,23 @@ namespace CSharp_Terminübersicht
             OleDbCommand cmd = new OleDbCommand("Select * From Kontakte Where KTK_Key = " + tmpKey, connection.getConn());
             OleDbDataReader reader;
             string result;
+            string[] values;
             //OleDbDataAdapter adapter = new OleDbDataAdapter();
             //adapter.SelectCommand = cmd;
 
             reader = cmd.ExecuteReader();
             while(reader.Read())
             {
-                result = reader.GetString(1) + ";" + reader.GetString(2);
-                MessageBox.Show(result);
-                //this.txtName.Text = reader.GetString(1);
-                //this.txtVorname.Text = reader.GetString(2);
-                //this.txtAnschrift.Text = reader.GetString(3);
-                //this.txtTelefon.Text = reader.GetString(4);
-                //this.txtMail.Text = reader.GetString(5);
+                result = fCheckForVal(reader.GetString(1).ToString()) + ";" + fCheckForVal(reader.GetString(2).ToString()) + ";" +
+                         fCheckForVal(reader.GetString(3).ToString()) + ";" + fCheckForVal(reader.GetString(4).ToString()) + ";" +
+                         fCheckForVal(reader.GetString(5).ToString());
+                values = result.Split(';');
+
+                this.txtName.Text = values[0];
+                this.txtVorname.Text = values[1];
+                this.txtAnschrift.Text = values[2];
+                this.txtTelefon.Text = values[3];
+                this.txtMail.Text = values[4];
                // MessageBox.Show(result);
             }
 
@@ -166,6 +170,14 @@ namespace CSharp_Terminübersicht
             //        sb.Append(Environment.NewLine);
             //    }
             //}
+        }
+
+        private string fCheckForVal(String str)
+        {
+            if (str == String.Empty )
+            { return ""; }
+            else
+            { return str; }
         }
 
     }
