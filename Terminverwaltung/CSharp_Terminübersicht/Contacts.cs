@@ -19,166 +19,157 @@ namespace CSharp_Terminübersicht
         {
             InitializeComponent();
             this.txtName.Focus();
+            this.txtKTK_Key.Text = "0";
+            fClear();
         }
 
         private void save_Click(object sender, EventArgs e)
         {
-            string strInsert = "", strValues = "";
+            //Insert oder Update...
+            string strInsert = "", strUpdate = "", strValues = "";
+
             Boolean fSuccess = false;
             OleDbDataAdapter adapter;
             DataTable DT = new DataTable();
+
+            try
+            {
+               // Wenn die ID des Datensatzes größer 0 ist, wird ein Update gemacht
+                if (Convert.ToInt32(this.txtKTK_Key.Text) > 0)
+                {
+                    fCheckFields(true);
+                    strUpdate = "Update Kontakte " +
+                                "   Set KTK_Name = '" + this.txtName.Text + "'," +
+                                "       KTK_Vorname = '" + this.txtVorname.Text + "'," +
+                                "       KTK_Anschrift = '" + this.txtAnschrift.Text + "'," +
+                                "       KTK_Telefon = '" + this.txtTelefon.Text + "'," +
+                                "       KTK_EMail = '" + this.txtMail.Text + "' " +
+                    " Where KTK_Key = " + Convert.ToInt32(this.txtKTK_Key.Text);
+                    fSuccess = connection.fCreateCommand(strUpdate);
+                    if (fSuccess == true)
+                    {
+                        //Aktualisieren des Datagrids
+                        adapter = new OleDbDataAdapter("Select * From Kontakte", connection.getConn());
+                        adapter.Fill(DT);
+                        this.dataGridView1.DataSource = DT;
+                        this.dataGridView1.EndEdit();
+                        this.dataGridView1.Refresh();
+                        fClear();
+                    }
+                }
+                else
+                {
+                    //Wenn die ID = 0 wird ein Insert gemacht
+                    strInsert = "Insert Into Kontakte (KTK_Name, KTK_Vorname, KTK_Anschrift, KTK_Telefon, KTK_EMail )";
+                    strValues = fCheckFields(false);
+
+                    fSuccess = connection.fCreateCommand(strInsert + " " + strValues);
+                    if (fSuccess == true)
+                    {
+                        adapter = new OleDbDataAdapter("Select * From Kontakte", connection.getConn());
+                        adapter.Fill(DT);
+                        this.dataGridView1.DataSource = DT;
+                        this.dataGridView1.EndEdit();
+                        this.dataGridView1.Refresh();
+                        fClear();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
             
 
 
-            strInsert = "Insert Into Kontakte (KTK_Name, KTK_Vorname, KTK_Anschrift, KTK_Telefon, KTK_EMail )";
-            strValues = fCheckFields(); //"Values (" + this.txtName.Text.ToString().Trim() + "," + 
-            //this.txtVorname.Text.ToString().Trim() + "," + 
-            //this.txtAnschrift.Text.ToString().Trim() + "," +
-            //this.txtTelefon.Text.ToString().Trim() + "," + 
-            //this.txtMail.Text.ToString().Trim() + ")";        //+ "," + this.ProfilePic.ToString().Trim() + ")";
-
-            fSuccess = connection.fCreateCommand(strInsert + " " + strValues);
-            if (fSuccess == true)
-            {
-                try
-                {
-                    adapter = new OleDbDataAdapter("Select * From Kontakte", connection.getConn());
-                    adapter.Fill(DT);
-                    this.dataGridView1.DataSource = DT;
-                    this.dataGridView1.EndEdit();
-                    this.dataGridView1.Refresh();
-                    fClear();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-
-            }
-        }
-
-
-
-
-        private void Contacts_Load(object sender, EventArgs e)
-        {
-            // TODO: Diese Codezeile lädt Daten in die Tabelle "dB_TermineDataSet.Kontakte". Sie können sie bei Bedarf verschieben oder entfernen.
-            this.kontakteTableAdapter.Fill(this.dB_TermineDataSet.Kontakte);
-        }
-
         private void fClear()
         {
+            //Zurücksetzen der Felder....
             this.txtName.Text = "";
             this.txtVorname.Text = "";
             this.txtAnschrift.Text = "";
             this.txtTelefon.Text = "";
             this.txtMail.Text = "";
+            this.txtKTK_Key.Text = "0";
         }
 
-        private string fCheckFields()
+        private string fCheckFields(Boolean bIsUpdate)
         {
+            //Prüfen der Feldwerte - Regulär beim Ausführen eines SQLs
             string name, vorname, anschrift, telefon, mail;
 
             if (this.txtName.Text == "")
-                name = "";
+                name = " ";
             else
                 name = this.txtName.Text.ToString().Trim();
 
             if (this.txtVorname.Text == "")
-                vorname = "";
+                vorname = " ";
             else
                 vorname = this.txtVorname.Text.ToString().Trim();
 
             if (this.txtAnschrift.Text == "")
-                anschrift = "";
+                anschrift = " ";
             else
                 anschrift = this.txtAnschrift.Text.ToString().Trim();
 
             if (this.txtTelefon.Text == "")
-                telefon = "";
+                telefon = " ";
             else
                 telefon = this.txtTelefon.Text.ToString().Trim();
 
             if (this.txtMail.Text == "")
-                mail = "";
+                mail = " ";
             else
                 mail = this.txtMail.Text.ToString().Trim();
 
-            return "VALUES ('" + name + "','" + vorname + "','" + anschrift + "','" + telefon + "','" + mail + "');";
-        }
-
-        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            //int tmpKey;
-
-            //tmpKey = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["KTK_Key"].Value);
-
-
-            //OleDbCommand cmd = new OleDbCommand();
-            //OleDbDataReader rde;
-            //cmd.CommandText = "Select * From Kontakte Where KTK_Key = " + dataGridView1.Rows[e.RowIndex].Cells["KTK_Key"].Value;
-
-            //rde = cmd.ExecuteReader();
-            //while (rde.Read())
-            //{
-            //    this.txtName.Text = rde.GetString(1);
-            //    this.txtVorname.Text = rde.GetString(2);
-            //    this.txtAnschrift.Text = rde.GetString(3);
-            //    this.txtTelefon.Text = rde.GetString(4);
-            //    this.txtMail.Text = rde.GetString(5);
-            //}
-
-
+            if (bIsUpdate == false)
+                return "VALUES ('" + name + "','" + vorname + "','" + anschrift + "','" + telefon + "','" + mail + "');";
+            else
+            {
+                this.txtName.Text = name;
+                this.txtVorname.Text = vorname;
+                this.txtAnschrift.Text = anschrift;
+                this.txtTelefon.Text = telefon;
+                this.txtMail.Text = mail;
+                return "";
+            } 
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           // int tmpRow = dataGridView1.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            //Abfragen der Informationen aus der Datenbank und Anzeige im Form
             int tmpKey = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["kTKKeyDataGridViewTextBoxColumn"].Value);
             OleDbCommand cmd = new OleDbCommand("Select * From Kontakte Where KTK_Key = " + tmpKey, connection.getConn());
             OleDbDataReader reader;
-            string result;
-            string[] values;
-            //OleDbDataAdapter adapter = new OleDbDataAdapter();
-            //adapter.SelectCommand = cmd;
 
             reader = cmd.ExecuteReader();
             while(reader.Read())
             {
-                result = fCheckForVal(reader.GetString(1).ToString()) + ";" + fCheckForVal(reader.GetString(2).ToString()) + ";" +
-                         fCheckForVal(reader.GetString(3).ToString()) + ";" + fCheckForVal(reader.GetString(4).ToString()) + ";" +
-                         fCheckForVal(reader.GetString(5).ToString());
-                values = result.Split(';');
-
-                this.txtName.Text = values[0];
-                this.txtVorname.Text = values[1];
-                this.txtAnschrift.Text = values[2];
-                this.txtTelefon.Text = values[3];
-                this.txtMail.Text = values[4];
-               // MessageBox.Show(result);
+                this.txtKTK_Key.Text = fCheckForVal(reader.GetValue(0).ToString());
+                this.txtName.Text = fCheckForVal(reader.GetValue(1).ToString());
+                this.txtVorname.Text = fCheckForVal(reader.GetValue(2).ToString());
+                this.txtAnschrift.Text = fCheckForVal(reader.GetValue(3).ToString());
+                this.txtTelefon.Text = fCheckForVal(reader.GetValue(4).ToString());
+                this.txtMail.Text = fCheckForVal(reader.GetValue(5).ToString());
             }
-
-            //this.txtName.Text
-
-            //if (tmpRow > 0)
-            //{
-            //    System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            //    for (int i = 0; i < tmpRow; i++)
-            //    {
-            //        sb.Append("Row: ");
-            //        sb.Append(dataGridView1.SelectedRows[i].Index.ToString());
-            //        sb.Append(Environment.NewLine);
-            //    }
-            //}
         }
 
         private string fCheckForVal(String str)
         {
+            // Prüfen ob ein Wert gefüllt ist...
             if (str == String.Empty )
             { return ""; }
             else
             { return str; }
         }
 
+        private void Contacts_Load(object sender, EventArgs e)
+        {
+            // TODO: Diese Codezeile lädt Daten in die Tabelle "dB_TermineDataSet.Kontakte". Sie können sie bei Bedarf verschieben oder entfernen.
+            this.kontakteTableAdapter.Fill(this.dB_TermineDataSet.Kontakte);
+
+        }
     }
 }

@@ -45,25 +45,21 @@
             this.Contactdate = new System.Windows.Forms.GroupBox();
             this.save = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cloName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cloVorname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cloAnschrift = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cloTelefon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cloMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtKTK_Key = new System.Windows.Forms.TextBox();
+            this.dB_TermineDataSet = new CSharp_Terminübersicht.DB_TermineDataSet();
+            this.kontakteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kontakteTableAdapter = new CSharp_Terminübersicht.DB_TermineDataSetTableAdapters.KontakteTableAdapter();
             this.kTKKeyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kTKNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kTKVornameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kTKAnschriftDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kTKTelefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kTKEMailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kontakteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dB_TermineDataSet = new CSharp_Terminübersicht.DB_TermineDataSet();
-            this.kontakteTableAdapter = new CSharp_Terminübersicht.DB_TermineDataSetTableAdapters.KontakteTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePic)).BeginInit();
             this.Contactdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kontakteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dB_TermineDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kontakteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // vorname
@@ -223,11 +219,6 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cloName,
-            this.cloVorname,
-            this.cloAnschrift,
-            this.cloTelefon,
-            this.cloMail,
             this.kTKKeyDataGridViewTextBoxColumn,
             this.kTKNameDataGridViewTextBoxColumn,
             this.kTKVornameDataGridViewTextBoxColumn,
@@ -241,101 +232,76 @@
             this.dataGridView1.TabIndex = 17;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // cloName
+            // txtKTK_Key
             // 
-            this.cloName.DataPropertyName = "KTK_Name";
-            this.cloName.HeaderText = "Name";
-            this.cloName.Name = "cloName";
-            this.cloName.Width = 125;
-            // 
-            // cloVorname
-            // 
-            this.cloVorname.DataPropertyName = "KTK_Vorname";
-            this.cloVorname.HeaderText = "Vorname";
-            this.cloVorname.Name = "cloVorname";
-            this.cloVorname.Width = 125;
-            // 
-            // cloAnschrift
-            // 
-            this.cloAnschrift.DataPropertyName = "KTK_Anschrift";
-            this.cloAnschrift.HeaderText = "Adresse";
-            this.cloAnschrift.Name = "cloAnschrift";
-            this.cloAnschrift.Width = 125;
-            // 
-            // cloTelefon
-            // 
-            this.cloTelefon.DataPropertyName = "KTK_Telefon";
-            this.cloTelefon.HeaderText = "Telefon";
-            this.cloTelefon.Name = "cloTelefon";
-            this.cloTelefon.Width = 125;
-            // 
-            // cloMail
-            // 
-            this.cloMail.DataPropertyName = "KTK_EMail";
-            this.cloMail.HeaderText = "E-Mail";
-            this.cloMail.Name = "cloMail";
-            this.cloMail.Width = 125;
-            // 
-            // kTKKeyDataGridViewTextBoxColumn
-            // 
-            this.kTKKeyDataGridViewTextBoxColumn.DataPropertyName = "KTK_Key";
-            this.kTKKeyDataGridViewTextBoxColumn.HeaderText = "KTK_Key";
-            this.kTKKeyDataGridViewTextBoxColumn.Name = "kTKKeyDataGridViewTextBoxColumn";
-            // 
-            // kTKNameDataGridViewTextBoxColumn
-            // 
-            this.kTKNameDataGridViewTextBoxColumn.DataPropertyName = "KTK_Name";
-            this.kTKNameDataGridViewTextBoxColumn.HeaderText = "KTK_Name";
-            this.kTKNameDataGridViewTextBoxColumn.Name = "kTKNameDataGridViewTextBoxColumn";
-            this.kTKNameDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // kTKVornameDataGridViewTextBoxColumn
-            // 
-            this.kTKVornameDataGridViewTextBoxColumn.DataPropertyName = "KTK_Vorname";
-            this.kTKVornameDataGridViewTextBoxColumn.HeaderText = "KTK_Vorname";
-            this.kTKVornameDataGridViewTextBoxColumn.Name = "kTKVornameDataGridViewTextBoxColumn";
-            this.kTKVornameDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // kTKAnschriftDataGridViewTextBoxColumn
-            // 
-            this.kTKAnschriftDataGridViewTextBoxColumn.DataPropertyName = "KTK_Anschrift";
-            this.kTKAnschriftDataGridViewTextBoxColumn.HeaderText = "KTK_Anschrift";
-            this.kTKAnschriftDataGridViewTextBoxColumn.Name = "kTKAnschriftDataGridViewTextBoxColumn";
-            this.kTKAnschriftDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // kTKTelefonDataGridViewTextBoxColumn
-            // 
-            this.kTKTelefonDataGridViewTextBoxColumn.DataPropertyName = "KTK_Telefon";
-            this.kTKTelefonDataGridViewTextBoxColumn.HeaderText = "KTK_Telefon";
-            this.kTKTelefonDataGridViewTextBoxColumn.Name = "kTKTelefonDataGridViewTextBoxColumn";
-            this.kTKTelefonDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // kTKEMailDataGridViewTextBoxColumn
-            // 
-            this.kTKEMailDataGridViewTextBoxColumn.DataPropertyName = "KTK_EMail";
-            this.kTKEMailDataGridViewTextBoxColumn.HeaderText = "KTK_EMail";
-            this.kTKEMailDataGridViewTextBoxColumn.Name = "kTKEMailDataGridViewTextBoxColumn";
-            this.kTKEMailDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // kontakteBindingSource
-            // 
-            this.kontakteBindingSource.DataMember = "Kontakte";
-            this.kontakteBindingSource.DataSource = this.dB_TermineDataSet;
+            this.txtKTK_Key.Location = new System.Drawing.Point(461, 498);
+            this.txtKTK_Key.Name = "txtKTK_Key";
+            this.txtKTK_Key.Size = new System.Drawing.Size(100, 20);
+            this.txtKTK_Key.TabIndex = 18;
+            this.txtKTK_Key.Visible = false;
             // 
             // dB_TermineDataSet
             // 
             this.dB_TermineDataSet.DataSetName = "DB_TermineDataSet";
             this.dB_TermineDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // kontakteBindingSource
+            // 
+            this.kontakteBindingSource.DataMember = "Kontakte";
+            this.kontakteBindingSource.DataSource = this.dB_TermineDataSet;
+            // 
             // kontakteTableAdapter
             // 
             this.kontakteTableAdapter.ClearBeforeFill = true;
+            // 
+            // kTKKeyDataGridViewTextBoxColumn
+            // 
+            this.kTKKeyDataGridViewTextBoxColumn.DataPropertyName = "KTK_Key";
+            this.kTKKeyDataGridViewTextBoxColumn.HeaderText = "KTK_Key";
+            this.kTKKeyDataGridViewTextBoxColumn.Name = "kTKKeyDataGridViewTextBoxColumn";
+            this.kTKKeyDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // kTKNameDataGridViewTextBoxColumn
+            // 
+            this.kTKNameDataGridViewTextBoxColumn.DataPropertyName = "KTK_Name";
+            this.kTKNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.kTKNameDataGridViewTextBoxColumn.Name = "kTKNameDataGridViewTextBoxColumn";
+            this.kTKNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // kTKVornameDataGridViewTextBoxColumn
+            // 
+            this.kTKVornameDataGridViewTextBoxColumn.DataPropertyName = "KTK_Vorname";
+            this.kTKVornameDataGridViewTextBoxColumn.HeaderText = "Vorname";
+            this.kTKVornameDataGridViewTextBoxColumn.Name = "kTKVornameDataGridViewTextBoxColumn";
+            this.kTKVornameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // kTKAnschriftDataGridViewTextBoxColumn
+            // 
+            this.kTKAnschriftDataGridViewTextBoxColumn.DataPropertyName = "KTK_Anschrift";
+            this.kTKAnschriftDataGridViewTextBoxColumn.HeaderText = "Anschrift";
+            this.kTKAnschriftDataGridViewTextBoxColumn.Name = "kTKAnschriftDataGridViewTextBoxColumn";
+            this.kTKAnschriftDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // kTKTelefonDataGridViewTextBoxColumn
+            // 
+            this.kTKTelefonDataGridViewTextBoxColumn.DataPropertyName = "KTK_Telefon";
+            this.kTKTelefonDataGridViewTextBoxColumn.HeaderText = "Telefon";
+            this.kTKTelefonDataGridViewTextBoxColumn.Name = "kTKTelefonDataGridViewTextBoxColumn";
+            this.kTKTelefonDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // kTKEMailDataGridViewTextBoxColumn
+            // 
+            this.kTKEMailDataGridViewTextBoxColumn.DataPropertyName = "KTK_EMail";
+            this.kTKEMailDataGridViewTextBoxColumn.HeaderText = "Mail";
+            this.kTKEMailDataGridViewTextBoxColumn.Name = "kTKEMailDataGridViewTextBoxColumn";
+            this.kTKEMailDataGridViewTextBoxColumn.Width = 125;
             // 
             // Contacts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(685, 539);
+            this.ClientSize = new System.Drawing.Size(687, 539);
+            this.Controls.Add(this.txtKTK_Key);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.save);
             this.Controls.Add(this.Contactdate);
@@ -347,8 +313,8 @@
             this.Contactdate.ResumeLayout(false);
             this.Contactdate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kontakteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dB_TermineDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kontakteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -372,20 +338,15 @@
         private System.Windows.Forms.GroupBox Contactdate;
         private System.Windows.Forms.Button save;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox txtKTK_Key;
         private DB_TermineDataSet dB_TermineDataSet;
         private System.Windows.Forms.BindingSource kontakteBindingSource;
         private DB_TermineDataSetTableAdapters.KontakteTableAdapter kontakteTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cloName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cloVorname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cloAnschrift;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cloTelefon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cloMail;
         private System.Windows.Forms.DataGridViewTextBoxColumn kTKKeyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kTKNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kTKVornameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kTKAnschriftDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kTKTelefonDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kTKEMailDataGridViewTextBoxColumn;
-
     }
 }

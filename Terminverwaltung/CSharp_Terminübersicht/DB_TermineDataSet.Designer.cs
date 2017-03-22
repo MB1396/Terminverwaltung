@@ -26,11 +26,9 @@ namespace CSharp_Terminübersicht {
         
         private KontakteDataTable tableKontakte;
         
-        private MAP_TermineDataTable tableMAP_Termine;
-        
         private TermineDataTable tableTermine;
         
-        private global::System.Data.DataRelation relationTermineMAP_Termine;
+        private global::System.Data.DataRelation relationKontakteTermine;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -63,9 +61,6 @@ namespace CSharp_Terminübersicht {
                 if ((ds.Tables["Kontakte"] != null)) {
                     base.Tables.Add(new KontakteDataTable(ds.Tables["Kontakte"]));
                 }
-                if ((ds.Tables["MAP_Termine"] != null)) {
-                    base.Tables.Add(new MAP_TermineDataTable(ds.Tables["MAP_Termine"]));
-                }
                 if ((ds.Tables["Termine"] != null)) {
                     base.Tables.Add(new TermineDataTable(ds.Tables["Termine"]));
                 }
@@ -94,16 +89,6 @@ namespace CSharp_Terminübersicht {
         public KontakteDataTable Kontakte {
             get {
                 return this.tableKontakte;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public MAP_TermineDataTable MAP_Termine {
-            get {
-                return this.tableMAP_Termine;
             }
         }
         
@@ -187,9 +172,6 @@ namespace CSharp_Terminübersicht {
                 if ((ds.Tables["Kontakte"] != null)) {
                     base.Tables.Add(new KontakteDataTable(ds.Tables["Kontakte"]));
                 }
-                if ((ds.Tables["MAP_Termine"] != null)) {
-                    base.Tables.Add(new MAP_TermineDataTable(ds.Tables["MAP_Termine"]));
-                }
                 if ((ds.Tables["Termine"] != null)) {
                     base.Tables.Add(new TermineDataTable(ds.Tables["Termine"]));
                 }
@@ -232,19 +214,13 @@ namespace CSharp_Terminübersicht {
                     this.tableKontakte.InitVars();
                 }
             }
-            this.tableMAP_Termine = ((MAP_TermineDataTable)(base.Tables["MAP_Termine"]));
-            if ((initTable == true)) {
-                if ((this.tableMAP_Termine != null)) {
-                    this.tableMAP_Termine.InitVars();
-                }
-            }
             this.tableTermine = ((TermineDataTable)(base.Tables["Termine"]));
             if ((initTable == true)) {
                 if ((this.tableTermine != null)) {
                     this.tableTermine.InitVars();
                 }
             }
-            this.relationTermineMAP_Termine = this.Relations["TermineMAP_Termine"];
+            this.relationKontakteTermine = this.Relations["KontakteTermine"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -257,25 +233,17 @@ namespace CSharp_Terminübersicht {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableKontakte = new KontakteDataTable();
             base.Tables.Add(this.tableKontakte);
-            this.tableMAP_Termine = new MAP_TermineDataTable();
-            base.Tables.Add(this.tableMAP_Termine);
             this.tableTermine = new TermineDataTable();
             base.Tables.Add(this.tableTermine);
-            this.relationTermineMAP_Termine = new global::System.Data.DataRelation("TermineMAP_Termine", new global::System.Data.DataColumn[] {
-                        this.tableTermine.APT_KeyColumn}, new global::System.Data.DataColumn[] {
-                        this.tableMAP_Termine.APT_KeyColumn}, false);
-            this.Relations.Add(this.relationTermineMAP_Termine);
+            this.relationKontakteTermine = new global::System.Data.DataRelation("KontakteTermine", new global::System.Data.DataColumn[] {
+                        this.tableKontakte.KTK_KeyColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTermine.KTK_KeyColumn}, false);
+            this.Relations.Add(this.relationKontakteTermine);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeKontakte() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeMAP_Termine() {
             return false;
         }
         
@@ -342,9 +310,6 @@ namespace CSharp_Terminübersicht {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void KontakteRowChangeEventHandler(object sender, KontakteRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void MAP_TermineRowChangeEventHandler(object sender, MAP_TermineRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void TermineRowChangeEventHandler(object sender, TermineRowChangeEvent e);
@@ -690,298 +655,11 @@ namespace CSharp_Terminübersicht {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class MAP_TermineDataTable : global::System.Data.TypedTableBase<MAP_TermineRow> {
-            
-            private global::System.Data.DataColumn columnMAP_Key;
-            
-            private global::System.Data.DataColumn columnKTK_Key;
-            
-            private global::System.Data.DataColumn columnAPT_Key;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MAP_TermineDataTable() {
-                this.TableName = "MAP_Termine";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal MAP_TermineDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected MAP_TermineDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MAP_KeyColumn {
-                get {
-                    return this.columnMAP_Key;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn KTK_KeyColumn {
-                get {
-                    return this.columnKTK_Key;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn APT_KeyColumn {
-                get {
-                    return this.columnAPT_Key;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MAP_TermineRow this[int index] {
-                get {
-                    return ((MAP_TermineRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event MAP_TermineRowChangeEventHandler MAP_TermineRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event MAP_TermineRowChangeEventHandler MAP_TermineRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event MAP_TermineRowChangeEventHandler MAP_TermineRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event MAP_TermineRowChangeEventHandler MAP_TermineRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddMAP_TermineRow(MAP_TermineRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MAP_TermineRow AddMAP_TermineRow(int MAP_Key, int KTK_Key, TermineRow parentTermineRowByTermineMAP_Termine) {
-                MAP_TermineRow rowMAP_TermineRow = ((MAP_TermineRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        MAP_Key,
-                        KTK_Key,
-                        null};
-                if ((parentTermineRowByTermineMAP_Termine != null)) {
-                    columnValuesArray[2] = parentTermineRowByTermineMAP_Termine[0];
-                }
-                rowMAP_TermineRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowMAP_TermineRow);
-                return rowMAP_TermineRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MAP_TermineRow FindByMAP_Key(int MAP_Key) {
-                return ((MAP_TermineRow)(this.Rows.Find(new object[] {
-                            MAP_Key})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                MAP_TermineDataTable cln = ((MAP_TermineDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new MAP_TermineDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnMAP_Key = base.Columns["MAP_Key"];
-                this.columnKTK_Key = base.Columns["KTK_Key"];
-                this.columnAPT_Key = base.Columns["APT_Key"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnMAP_Key = new global::System.Data.DataColumn("MAP_Key", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMAP_Key);
-                this.columnKTK_Key = new global::System.Data.DataColumn("KTK_Key", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKTK_Key);
-                this.columnAPT_Key = new global::System.Data.DataColumn("APT_Key", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAPT_Key);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnMAP_Key}, true));
-                this.columnMAP_Key.AllowDBNull = false;
-                this.columnMAP_Key.Unique = true;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MAP_TermineRow NewMAP_TermineRow() {
-                return ((MAP_TermineRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new MAP_TermineRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(MAP_TermineRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.MAP_TermineRowChanged != null)) {
-                    this.MAP_TermineRowChanged(this, new MAP_TermineRowChangeEvent(((MAP_TermineRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.MAP_TermineRowChanging != null)) {
-                    this.MAP_TermineRowChanging(this, new MAP_TermineRowChangeEvent(((MAP_TermineRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.MAP_TermineRowDeleted != null)) {
-                    this.MAP_TermineRowDeleted(this, new MAP_TermineRowChangeEvent(((MAP_TermineRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.MAP_TermineRowDeleting != null)) {
-                    this.MAP_TermineRowDeleting(this, new MAP_TermineRowChangeEvent(((MAP_TermineRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveMAP_TermineRow(MAP_TermineRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DB_TermineDataSet ds = new DB_TermineDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "MAP_TermineDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class TermineDataTable : global::System.Data.TypedTableBase<TermineRow> {
             
             private global::System.Data.DataColumn columnAPT_Key;
+            
+            private global::System.Data.DataColumn columnKTK_Key;
             
             private global::System.Data.DataColumn columnAPT_dDate;
             
@@ -1029,6 +707,14 @@ namespace CSharp_Terminübersicht {
             public global::System.Data.DataColumn APT_KeyColumn {
                 get {
                     return this.columnAPT_Key;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn KTK_KeyColumn {
+                get {
+                    return this.columnKTK_Key;
                 }
             }
             
@@ -1101,14 +787,18 @@ namespace CSharp_Terminübersicht {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TermineRow AddTermineRow(int APT_Key, System.DateTime APT_dDate, System.DateTime APT_dVon, System.DateTime APT_dBis, string APT_Note) {
+            public TermineRow AddTermineRow(int APT_Key, KontakteRow parentKontakteRowByKontakteTermine, System.DateTime APT_dDate, System.DateTime APT_dVon, System.DateTime APT_dBis, string APT_Note) {
                 TermineRow rowTermineRow = ((TermineRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         APT_Key,
+                        null,
                         APT_dDate,
                         APT_dVon,
                         APT_dBis,
                         APT_Note};
+                if ((parentKontakteRowByKontakteTermine != null)) {
+                    columnValuesArray[1] = parentKontakteRowByKontakteTermine[0];
+                }
                 rowTermineRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTermineRow);
                 return rowTermineRow;
@@ -1139,6 +829,7 @@ namespace CSharp_Terminübersicht {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnAPT_Key = base.Columns["APT_Key"];
+                this.columnKTK_Key = base.Columns["KTK_Key"];
                 this.columnAPT_dDate = base.Columns["APT_dDate"];
                 this.columnAPT_dVon = base.Columns["APT_dVon"];
                 this.columnAPT_dBis = base.Columns["APT_dBis"];
@@ -1150,6 +841,8 @@ namespace CSharp_Terminübersicht {
             private void InitClass() {
                 this.columnAPT_Key = new global::System.Data.DataColumn("APT_Key", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAPT_Key);
+                this.columnKTK_Key = new global::System.Data.DataColumn("KTK_Key", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKTK_Key);
                 this.columnAPT_dDate = new global::System.Data.DataColumn("APT_dDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAPT_dDate);
                 this.columnAPT_dVon = new global::System.Data.DataColumn("APT_dVon", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -1453,98 +1146,16 @@ namespace CSharp_Terminübersicht {
             public void SetKTK_EMailNull() {
                 this[this.tableKontakte.KTK_EMailColumn] = global::System.Convert.DBNull;
             }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class MAP_TermineRow : global::System.Data.DataRow {
-            
-            private MAP_TermineDataTable tableMAP_Termine;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal MAP_TermineRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableMAP_Termine = ((MAP_TermineDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int MAP_Key {
-                get {
-                    return ((int)(this[this.tableMAP_Termine.MAP_KeyColumn]));
+            public TermineRow[] GetTermineRows() {
+                if ((this.Table.ChildRelations["KontakteTermine"] == null)) {
+                    return new TermineRow[0];
                 }
-                set {
-                    this[this.tableMAP_Termine.MAP_KeyColumn] = value;
+                else {
+                    return ((TermineRow[])(base.GetChildRows(this.Table.ChildRelations["KontakteTermine"])));
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int KTK_Key {
-                get {
-                    try {
-                        return ((int)(this[this.tableMAP_Termine.KTK_KeyColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Der Wert für Spalte KTK_Key in Tabelle MAP_Termine ist DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMAP_Termine.KTK_KeyColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int APT_Key {
-                get {
-                    try {
-                        return ((int)(this[this.tableMAP_Termine.APT_KeyColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Der Wert für Spalte APT_Key in Tabelle MAP_Termine ist DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMAP_Termine.APT_KeyColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TermineRow TermineRow {
-                get {
-                    return ((TermineRow)(this.GetParentRow(this.Table.ParentRelations["TermineMAP_Termine"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["TermineMAP_Termine"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsKTK_KeyNull() {
-                return this.IsNull(this.tableMAP_Termine.KTK_KeyColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetKTK_KeyNull() {
-                this[this.tableMAP_Termine.KTK_KeyColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAPT_KeyNull() {
-                return this.IsNull(this.tableMAP_Termine.APT_KeyColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAPT_KeyNull() {
-                this[this.tableMAP_Termine.APT_KeyColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1570,6 +1181,22 @@ namespace CSharp_Terminübersicht {
                 }
                 set {
                     this[this.tableTermine.APT_KeyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int KTK_Key {
+                get {
+                    try {
+                        return ((int)(this[this.tableTermine.KTK_KeyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Der Wert für Spalte KTK_Key in Tabelle Termine ist DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTermine.KTK_KeyColumn] = value;
                 }
             }
             
@@ -1639,6 +1266,29 @@ namespace CSharp_Terminübersicht {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KontakteRow KontakteRow {
+                get {
+                    return ((KontakteRow)(this.GetParentRow(this.Table.ParentRelations["KontakteTermine"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["KontakteTermine"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsKTK_KeyNull() {
+                return this.IsNull(this.tableTermine.KTK_KeyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetKTK_KeyNull() {
+                this[this.tableTermine.KTK_KeyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsAPT_dDateNull() {
                 return this.IsNull(this.tableTermine.APT_dDateColumn);
             }
@@ -1684,17 +1334,6 @@ namespace CSharp_Terminübersicht {
             public void SetAPT_NoteNull() {
                 this[this.tableTermine.APT_NoteColumn] = global::System.Convert.DBNull;
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MAP_TermineRow[] GetMAP_TermineRows() {
-                if ((this.Table.ChildRelations["TermineMAP_Termine"] == null)) {
-                    return new MAP_TermineRow[0];
-                }
-                else {
-                    return ((MAP_TermineRow[])(base.GetChildRows(this.Table.ChildRelations["TermineMAP_Termine"])));
-                }
-            }
         }
         
         /// <summary>
@@ -1717,40 +1356,6 @@ namespace CSharp_Terminübersicht {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public KontakteRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class MAP_TermineRowChangeEvent : global::System.EventArgs {
-            
-            private MAP_TermineRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MAP_TermineRowChangeEvent(MAP_TermineRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MAP_TermineRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2264,386 +1869,6 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class MAP_TermineTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
-        
-        private global::System.Data.OleDb.OleDbConnection _connection;
-        
-        private global::System.Data.OleDb.OleDbTransaction _transaction;
-        
-        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public MAP_TermineTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.OleDb.OleDbConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.OleDb.OleDbTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "MAP_Termine";
-            tableMapping.ColumnMappings.Add("MAP_Key", "MAP_Key");
-            tableMapping.ColumnMappings.Add("KTK_Key", "KTK_Key");
-            tableMapping.ColumnMappings.Add("APT_Key", "APT_Key");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `MAP_Termine` WHERE ((`MAP_Key` = ?) AND ((? = 1 AND `KTK_Key` IS NUL" +
-                "L) OR (`KTK_Key` = ?)) AND ((? = 1 AND `APT_Key` IS NULL) OR (`APT_Key` = ?)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_MAP_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MAP_Key", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_KTK_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "KTK_Key", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_KTK_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "KTK_Key", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_APT_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_Key", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_APT_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_Key", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `MAP_Termine` (`MAP_Key`, `KTK_Key`, `APT_Key`) VALUES (?, ?, ?)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MAP_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MAP_Key", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("KTK_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "KTK_Key", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("APT_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_Key", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `MAP_Termine` SET `MAP_Key` = ?, `KTK_Key` = ?, `APT_Key` = ? WHERE ((`MAP" +
-                "_Key` = ?) AND ((? = 1 AND `KTK_Key` IS NULL) OR (`KTK_Key` = ?)) AND ((? = 1 AN" +
-                "D `APT_Key` IS NULL) OR (`APT_Key` = ?)))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MAP_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MAP_Key", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("KTK_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "KTK_Key", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("APT_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_Key", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_MAP_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MAP_Key", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_KTK_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "KTK_Key", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_KTK_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "KTK_Key", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_APT_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_Key", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_APT_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_Key", global::System.Data.DataRowVersion.Original, false, null));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::CSharp_Terminübersicht.Properties.Settings.Default.DB_Kontakte;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
-            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT MAP_Key, KTK_Key, APT_Key FROM MAP_Termine";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DB_TermineDataSet.MAP_TermineDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DB_TermineDataSet.MAP_TermineDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            DB_TermineDataSet.MAP_TermineDataTable dataTable = new DB_TermineDataSet.MAP_TermineDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DB_TermineDataSet.MAP_TermineDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DB_TermineDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "MAP_Termine");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(global::System.Nullable<int> Original_MAP_Key, global::System.Nullable<int> Original_KTK_Key, global::System.Nullable<int> Original_APT_Key) {
-            if ((Original_MAP_Key.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_MAP_Key.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Original_KTK_Key.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_KTK_Key.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Original_APT_Key.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_APT_Key.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> MAP_Key, global::System.Nullable<int> KTK_Key, global::System.Nullable<int> APT_Key) {
-            if ((MAP_Key.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(MAP_Key.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((KTK_Key.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(KTK_Key.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((APT_Key.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(APT_Key.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> MAP_Key, global::System.Nullable<int> KTK_Key, global::System.Nullable<int> APT_Key, global::System.Nullable<int> Original_MAP_Key, global::System.Nullable<int> Original_KTK_Key, global::System.Nullable<int> Original_APT_Key) {
-            if ((MAP_Key.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(MAP_Key.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((KTK_Key.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(KTK_Key.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((APT_Key.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(APT_Key.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Original_MAP_Key.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_MAP_Key.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Original_KTK_Key.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_KTK_Key.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Original_APT_Key.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_APT_Key.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> KTK_Key, global::System.Nullable<int> APT_Key, global::System.Nullable<int> Original_MAP_Key, global::System.Nullable<int> Original_KTK_Key, global::System.Nullable<int> Original_APT_Key) {
-            return this.Update(Original_MAP_Key, KTK_Key, APT_Key, Original_MAP_Key, Original_KTK_Key, Original_APT_Key);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class TermineTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.OleDb.OleDbDataAdapter _adapter;
@@ -2757,6 +1982,7 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Termine";
             tableMapping.ColumnMappings.Add("APT_Key", "APT_Key");
+            tableMapping.ColumnMappings.Add("KTK_Key", "KTK_Key");
             tableMapping.ColumnMappings.Add("APT_dDate", "APT_dDate");
             tableMapping.ColumnMappings.Add("APT_dVon", "APT_dVon");
             tableMapping.ColumnMappings.Add("APT_dBis", "APT_dBis");
@@ -2764,9 +1990,11 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Termine` WHERE ((`APT_Key` = ?) AND ((? = 1 AND `APT_dDate` IS NULL) OR (`APT_dDate` = ?)) AND ((? = 1 AND `APT_dVon` IS NULL) OR (`APT_dVon` = ?)) AND ((? = 1 AND `APT_dBis` IS NULL) OR (`APT_dBis` = ?)) AND ((? = 1 AND `APT_Note` IS NULL) OR (`APT_Note` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Termine` WHERE ((`APT_Key` = ?) AND ((? = 1 AND `KTK_Key` IS NULL) OR (`KTK_Key` = ?)) AND ((? = 1 AND `APT_dDate` IS NULL) OR (`APT_dDate` = ?)) AND ((? = 1 AND `APT_dVon` IS NULL) OR (`APT_dVon` = ?)) AND ((? = 1 AND `APT_dBis` IS NULL) OR (`APT_dBis` = ?)) AND ((? = 1 AND `APT_Note` IS NULL) OR (`APT_Note` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_APT_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_Key", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_KTK_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "KTK_Key", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_KTK_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "KTK_Key", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_APT_dDate", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_dDate", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_APT_dDate", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_dDate", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_APT_dVon", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_dVon", global::System.Data.DataRowVersion.Original, true, null));
@@ -2777,24 +2005,28 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_APT_Note", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_Note", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Termine` (`APT_Key`, `APT_dDate`, `APT_dVon`, `APT_dBis`, `APT_Note`" +
-                ") VALUES (?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Termine` (`APT_Key`, `KTK_Key`, `APT_dDate`, `APT_dVon`, `APT_dBis`," +
+                " `APT_Note`) VALUES (?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("APT_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_Key", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("KTK_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "KTK_Key", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("APT_dDate", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_dDate", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("APT_dVon", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_dVon", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("APT_dBis", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_dBis", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("APT_Note", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_Note", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Termine` SET `APT_Key` = ?, `APT_dDate` = ?, `APT_dVon` = ?, `APT_dBis` = ?, `APT_Note` = ? WHERE ((`APT_Key` = ?) AND ((? = 1 AND `APT_dDate` IS NULL) OR (`APT_dDate` = ?)) AND ((? = 1 AND `APT_dVon` IS NULL) OR (`APT_dVon` = ?)) AND ((? = 1 AND `APT_dBis` IS NULL) OR (`APT_dBis` = ?)) AND ((? = 1 AND `APT_Note` IS NULL) OR (`APT_Note` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Termine` SET `APT_Key` = ?, `KTK_Key` = ?, `APT_dDate` = ?, `APT_dVon` = ?, `APT_dBis` = ?, `APT_Note` = ? WHERE ((`APT_Key` = ?) AND ((? = 1 AND `KTK_Key` IS NULL) OR (`KTK_Key` = ?)) AND ((? = 1 AND `APT_dDate` IS NULL) OR (`APT_dDate` = ?)) AND ((? = 1 AND `APT_dVon` IS NULL) OR (`APT_dVon` = ?)) AND ((? = 1 AND `APT_dBis` IS NULL) OR (`APT_dBis` = ?)) AND ((? = 1 AND `APT_Note` IS NULL) OR (`APT_Note` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("APT_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_Key", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("KTK_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "KTK_Key", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("APT_dDate", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_dDate", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("APT_dVon", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_dVon", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("APT_dBis", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_dBis", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("APT_Note", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_Note", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_APT_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_Key", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_KTK_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "KTK_Key", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_KTK_Key", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "KTK_Key", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_APT_dDate", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_dDate", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_APT_dDate", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_dDate", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_APT_dVon", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "APT_dVon", global::System.Data.DataRowVersion.Original, true, null));
@@ -2818,7 +2050,7 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT APT_Key, APT_dDate, APT_dVon, APT_dBis, APT_Note FROM Termine";
+            this._commandCollection[0].CommandText = "SELECT APT_Key, KTK_Key, APT_dDate, APT_dVon, APT_dBis, APT_Note FROM Termine";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2879,44 +2111,47 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(global::System.Nullable<int> Original_APT_Key, global::System.Nullable<global::System.DateTime> Original_APT_dDate, global::System.Nullable<global::System.DateTime> Original_APT_dVon, global::System.Nullable<global::System.DateTime> Original_APT_dBis, string Original_APT_Note) {
-            if ((Original_APT_Key.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_APT_Key.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Original_APT_dDate.HasValue == true)) {
+        public virtual int Delete(int Original_APT_Key, global::System.Nullable<int> Original_KTK_Key, global::System.Nullable<global::System.DateTime> Original_APT_dDate, global::System.Nullable<global::System.DateTime> Original_APT_dVon, global::System.Nullable<global::System.DateTime> Original_APT_dBis, string Original_APT_Note) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_APT_Key));
+            if ((Original_KTK_Key.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_APT_dDate.Value));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_KTK_Key.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Original_APT_dVon.HasValue == true)) {
+            if ((Original_APT_dDate.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_APT_dVon.Value));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_APT_dDate.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_APT_dBis.HasValue == true)) {
+            if ((Original_APT_dVon.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_APT_dBis.Value));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_APT_dVon.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Original_APT_Note == null)) {
+            if ((Original_APT_dBis.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_APT_dBis.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
+            if ((Original_APT_Note == null)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
             else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_APT_Note));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_APT_Note));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2938,36 +2173,37 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> APT_Key, global::System.Nullable<global::System.DateTime> APT_dDate, global::System.Nullable<global::System.DateTime> APT_dVon, global::System.Nullable<global::System.DateTime> APT_dBis, string APT_Note) {
-            if ((APT_Key.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(APT_Key.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((APT_dDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(APT_dDate.Value));
+        public virtual int Insert(int APT_Key, global::System.Nullable<int> KTK_Key, global::System.Nullable<global::System.DateTime> APT_dDate, global::System.Nullable<global::System.DateTime> APT_dVon, global::System.Nullable<global::System.DateTime> APT_dBis, string APT_Note) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(APT_Key));
+            if ((KTK_Key.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(KTK_Key.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((APT_dVon.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(APT_dVon.Value));
+            if ((APT_dDate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(APT_dDate.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((APT_dBis.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(APT_dBis.Value));
+            if ((APT_dVon.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(APT_dVon.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((APT_Note == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            if ((APT_dBis.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(APT_dBis.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(APT_Note));
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((APT_Note == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(APT_Note));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2989,74 +2225,78 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> APT_Key, global::System.Nullable<global::System.DateTime> APT_dDate, global::System.Nullable<global::System.DateTime> APT_dVon, global::System.Nullable<global::System.DateTime> APT_dBis, string APT_Note, global::System.Nullable<int> Original_APT_Key, global::System.Nullable<global::System.DateTime> Original_APT_dDate, global::System.Nullable<global::System.DateTime> Original_APT_dVon, global::System.Nullable<global::System.DateTime> Original_APT_dBis, string Original_APT_Note) {
-            if ((APT_Key.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(APT_Key.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((APT_dDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(APT_dDate.Value));
+        public virtual int Update(int APT_Key, global::System.Nullable<int> KTK_Key, global::System.Nullable<global::System.DateTime> APT_dDate, global::System.Nullable<global::System.DateTime> APT_dVon, global::System.Nullable<global::System.DateTime> APT_dBis, string APT_Note, int Original_APT_Key, global::System.Nullable<int> Original_KTK_Key, global::System.Nullable<global::System.DateTime> Original_APT_dDate, global::System.Nullable<global::System.DateTime> Original_APT_dVon, global::System.Nullable<global::System.DateTime> Original_APT_dBis, string Original_APT_Note) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(APT_Key));
+            if ((KTK_Key.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(KTK_Key.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((APT_dVon.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(APT_dVon.Value));
+            if ((APT_dDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(APT_dDate.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((APT_dBis.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(APT_dBis.Value));
+            if ((APT_dVon.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(APT_dVon.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((APT_Note == null)) {
+            if ((APT_dBis.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(APT_dBis.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(APT_Note));
-            }
-            if ((Original_APT_Key.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_APT_Key.Value));
-            }
-            else {
+            if ((APT_Note == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((Original_APT_dDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(Original_APT_dDate.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(APT_Note));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_APT_Key));
+            if ((Original_KTK_Key.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_KTK_Key.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_APT_dDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_APT_dDate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((Original_APT_dVon.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_APT_dVon.Value));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Original_APT_dVon.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             if ((Original_APT_dBis.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_APT_dBis.Value));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_APT_dBis.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             if ((Original_APT_Note == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_APT_Note));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_APT_Note));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3078,8 +2318,8 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> APT_dDate, global::System.Nullable<global::System.DateTime> APT_dVon, global::System.Nullable<global::System.DateTime> APT_dBis, string APT_Note, global::System.Nullable<int> Original_APT_Key, global::System.Nullable<global::System.DateTime> Original_APT_dDate, global::System.Nullable<global::System.DateTime> Original_APT_dVon, global::System.Nullable<global::System.DateTime> Original_APT_dBis, string Original_APT_Note) {
-            return this.Update(Original_APT_Key, APT_dDate, APT_dVon, APT_dBis, APT_Note, Original_APT_Key, Original_APT_dDate, Original_APT_dVon, Original_APT_dBis, Original_APT_Note);
+        public virtual int Update(global::System.Nullable<int> KTK_Key, global::System.Nullable<global::System.DateTime> APT_dDate, global::System.Nullable<global::System.DateTime> APT_dVon, global::System.Nullable<global::System.DateTime> APT_dBis, string APT_Note, int Original_APT_Key, global::System.Nullable<int> Original_KTK_Key, global::System.Nullable<global::System.DateTime> Original_APT_dDate, global::System.Nullable<global::System.DateTime> Original_APT_dVon, global::System.Nullable<global::System.DateTime> Original_APT_dBis, string Original_APT_Note) {
+            return this.Update(Original_APT_Key, KTK_Key, APT_dDate, APT_dVon, APT_dBis, APT_Note, Original_APT_Key, Original_KTK_Key, Original_APT_dDate, Original_APT_dVon, Original_APT_dBis, Original_APT_Note);
         }
     }
     
@@ -3096,8 +2336,6 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
         private UpdateOrderOption _updateOrder;
         
         private KontakteTableAdapter _kontakteTableAdapter;
-        
-        private MAP_TermineTableAdapter _mAP_TermineTableAdapter;
         
         private TermineTableAdapter _termineTableAdapter;
         
@@ -3127,20 +2365,6 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
             }
             set {
                 this._kontakteTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public MAP_TermineTableAdapter MAP_TermineTableAdapter {
-            get {
-                return this._mAP_TermineTableAdapter;
-            }
-            set {
-                this._mAP_TermineTableAdapter = value;
             }
         }
         
@@ -3181,10 +2405,6 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
                             && (this._kontakteTableAdapter.Connection != null))) {
                     return this._kontakteTableAdapter.Connection;
                 }
-                if (((this._mAP_TermineTableAdapter != null) 
-                            && (this._mAP_TermineTableAdapter.Connection != null))) {
-                    return this._mAP_TermineTableAdapter.Connection;
-                }
                 if (((this._termineTableAdapter != null) 
                             && (this._termineTableAdapter.Connection != null))) {
                     return this._termineTableAdapter.Connection;
@@ -3205,9 +2425,6 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
                 if ((this._kontakteTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._mAP_TermineTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._termineTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -3222,30 +2439,21 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(DB_TermineDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._termineTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Termine.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._termineTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._mAP_TermineTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.MAP_Termine.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._mAP_TermineTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._kontakteTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Kontakte.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._kontakteTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._termineTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Termine.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._termineTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -3259,27 +2467,19 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(DB_TermineDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._termineTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Termine.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._termineTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._mAP_TermineTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.MAP_Termine.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._mAP_TermineTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._kontakteTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Kontakte.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._kontakteTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._termineTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Termine.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._termineTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -3293,27 +2493,19 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(DB_TermineDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._kontakteTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Kontakte.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._kontakteTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._mAP_TermineTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.MAP_Termine.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._mAP_TermineTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._termineTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Termine.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._termineTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._kontakteTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Kontakte.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._kontakteTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -3358,11 +2550,6 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
             }
             if (((this._kontakteTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._kontakteTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Für alle von einem TableAdapterManager verwalteten Instanzen von TableAdapter mus" +
-                        "s die gleiche Verbindungszeichenfolge verwendet werden.");
-            }
-            if (((this._mAP_TermineTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._mAP_TermineTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Für alle von einem TableAdapterManager verwalteten Instanzen von TableAdapter mus" +
                         "s die gleiche Verbindungszeichenfolge verwendet werden.");
             }
@@ -3412,15 +2599,6 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
                     if (this._kontakteTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._kontakteTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._kontakteTableAdapter.Adapter);
-                    }
-                }
-                if ((this._mAP_TermineTableAdapter != null)) {
-                    revertConnections.Add(this._mAP_TermineTableAdapter, this._mAP_TermineTableAdapter.Connection);
-                    this._mAP_TermineTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
-                    this._mAP_TermineTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
-                    if (this._mAP_TermineTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._mAP_TermineTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._mAP_TermineTableAdapter.Adapter);
                     }
                 }
                 if ((this._termineTableAdapter != null)) {
@@ -3493,10 +2671,6 @@ namespace CSharp_Terminübersicht.DB_TermineDataSetTableAdapters {
                 if ((this._kontakteTableAdapter != null)) {
                     this._kontakteTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._kontakteTableAdapter]));
                     this._kontakteTableAdapter.Transaction = null;
-                }
-                if ((this._mAP_TermineTableAdapter != null)) {
-                    this._mAP_TermineTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._mAP_TermineTableAdapter]));
-                    this._mAP_TermineTableAdapter.Transaction = null;
                 }
                 if ((this._termineTableAdapter != null)) {
                     this._termineTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._termineTableAdapter]));

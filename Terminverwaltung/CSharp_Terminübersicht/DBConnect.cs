@@ -18,8 +18,9 @@ namespace CSharp_Terminübersicht
         {
             try
             {
-                //Connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\pascal.goertz\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\DB_Termine.accdb");
-                Connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\DB_Termine.accdb");
+                Connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\pascal.goertz\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\DB_Termine.accdb");
+                //Connection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\PGörtz.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\DB_Termine.accdb");
+                
                 Connection.Open();
                 dbOpen = true;
             }
@@ -40,10 +41,6 @@ namespace CSharp_Terminübersicht
             if (Connection != null && dbOpen == true)
                 Connection.Close();
         }
-
-
-
-
 
         public Boolean fCreateCommand(string cmd)
         {
