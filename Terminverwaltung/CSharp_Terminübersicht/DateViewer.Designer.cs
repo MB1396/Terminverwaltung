@@ -39,7 +39,7 @@
             this.cloSonntag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblAPT = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtAPTDesc = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.lbldVon = new System.Windows.Forms.Label();
             this.lbldBis = new System.Windows.Forms.Label();
@@ -58,6 +58,8 @@
             this.txtActiveWeek = new System.Windows.Forms.TextBox();
             this.txtdWeekStart = new System.Windows.Forms.TextBox();
             this.txtdWeekEnd = new System.Windows.Forms.TextBox();
+            this.txtMondayOfWeek = new System.Windows.Forms.TextBox();
+            this.btnShowCurrentWeek = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgAppointment)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +77,7 @@
             this.cloSonntag});
             this.dgAppointment.Location = new System.Drawing.Point(12, 12);
             this.dgAppointment.Name = "dgAppointment";
-            this.dgAppointment.Size = new System.Drawing.Size(825, 462);
+            this.dgAppointment.Size = new System.Drawing.Size(836, 462);
             this.dgAppointment.TabIndex = 0;
             // 
             // cloTime
@@ -140,13 +142,13 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Beschreibung";
             // 
-            // textBox1
+            // txtAPTDesc
             // 
-            this.textBox1.Location = new System.Drawing.Point(872, 241);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(240, 233);
-            this.textBox1.TabIndex = 12;
+            this.txtAPTDesc.Location = new System.Drawing.Point(872, 241);
+            this.txtAPTDesc.Multiline = true;
+            this.txtAPTDesc.Name = "txtAPTDesc";
+            this.txtAPTDesc.Size = new System.Drawing.Size(240, 233);
+            this.txtAPTDesc.TabIndex = 12;
             // 
             // label6
             // 
@@ -180,7 +182,7 @@
             // 
             // btnPrev
             // 
-            this.btnPrev.Location = new System.Drawing.Point(631, 492);
+            this.btnPrev.Location = new System.Drawing.Point(642, 478);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(100, 23);
             this.btnPrev.TabIndex = 16;
@@ -189,7 +191,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(737, 492);
+            this.btnNext.Location = new System.Drawing.Point(748, 478);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(100, 23);
             this.btnNext.TabIndex = 17;
@@ -299,28 +301,46 @@
             // 
             this.txtActiveWeek.Location = new System.Drawing.Point(910, 492);
             this.txtActiveWeek.Name = "txtActiveWeek";
-            this.txtActiveWeek.Size = new System.Drawing.Size(29, 20);
+            this.txtActiveWeek.Size = new System.Drawing.Size(35, 20);
             this.txtActiveWeek.TabIndex = 28;
             // 
             // txtdWeekStart
             // 
-            this.txtdWeekStart.Location = new System.Drawing.Point(1017, 480);
+            this.txtdWeekStart.Location = new System.Drawing.Point(1043, 480);
             this.txtdWeekStart.Name = "txtdWeekStart";
-            this.txtdWeekStart.Size = new System.Drawing.Size(95, 20);
+            this.txtdWeekStart.Size = new System.Drawing.Size(69, 20);
             this.txtdWeekStart.TabIndex = 29;
             // 
             // txtdWeekEnd
             // 
-            this.txtdWeekEnd.Location = new System.Drawing.Point(1017, 502);
+            this.txtdWeekEnd.Location = new System.Drawing.Point(1043, 502);
             this.txtdWeekEnd.Name = "txtdWeekEnd";
-            this.txtdWeekEnd.Size = new System.Drawing.Size(95, 20);
+            this.txtdWeekEnd.Size = new System.Drawing.Size(69, 20);
             this.txtdWeekEnd.TabIndex = 30;
+            // 
+            // txtMondayOfWeek
+            // 
+            this.txtMondayOfWeek.Location = new System.Drawing.Point(977, 492);
+            this.txtMondayOfWeek.Name = "txtMondayOfWeek";
+            this.txtMondayOfWeek.Size = new System.Drawing.Size(60, 20);
+            this.txtMondayOfWeek.TabIndex = 31;
+            // 
+            // btnShowCurrentWeek
+            // 
+            this.btnShowCurrentWeek.Location = new System.Drawing.Point(697, 504);
+            this.btnShowCurrentWeek.Name = "btnShowCurrentWeek";
+            this.btnShowCurrentWeek.Size = new System.Drawing.Size(100, 23);
+            this.btnShowCurrentWeek.TabIndex = 32;
+            this.btnShowCurrentWeek.Text = "Aktuelle Woche";
+            this.btnShowCurrentWeek.UseVisualStyleBackColor = true;
             // 
             // DateViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1146, 534);
+            this.Controls.Add(this.btnShowCurrentWeek);
+            this.Controls.Add(this.txtMondayOfWeek);
             this.Controls.Add(this.txtdWeekEnd);
             this.Controls.Add(this.txtdWeekStart);
             this.Controls.Add(this.txtActiveWeek);
@@ -339,7 +359,7 @@
             this.Controls.Add(this.lbldBis);
             this.Controls.Add(this.lbldVon);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtAPTDesc);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblAPT);
             this.Controls.Add(this.dgAppointment);
@@ -364,7 +384,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cloSonntag;
         private System.Windows.Forms.Label lblAPT;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAPTDesc;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbldVon;
         private System.Windows.Forms.Label lbldBis;
@@ -383,5 +403,7 @@
         private System.Windows.Forms.TextBox txtActiveWeek;
         private System.Windows.Forms.TextBox txtdWeekStart;
         private System.Windows.Forms.TextBox txtdWeekEnd;
+        private System.Windows.Forms.TextBox txtMondayOfWeek;
+        private System.Windows.Forms.Button btnShowCurrentWeek;
     }
 }
