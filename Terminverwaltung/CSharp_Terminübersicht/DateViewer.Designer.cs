@@ -188,6 +188,7 @@
             this.btnPrev.TabIndex = 16;
             this.btnPrev.Text = "Vorherige Woche";
             this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
             // btnNext
             // 
@@ -333,6 +334,7 @@
             this.btnShowCurrentWeek.TabIndex = 32;
             this.btnShowCurrentWeek.Text = "Aktuelle Woche";
             this.btnShowCurrentWeek.UseVisualStyleBackColor = true;
+            this.btnShowCurrentWeek.Click += new System.EventHandler(this.btnShowCurrentWeek_Click);
             // 
             // DateViewer
             // 

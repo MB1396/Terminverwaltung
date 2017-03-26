@@ -18,6 +18,7 @@ namespace CSharp_Terminübersicht
         OleDbCommand cmd;
         OleDbDataReader rder;
 
+
         public DateViewer()
         {
             InitializeComponent();
@@ -247,5 +248,44 @@ namespace CSharp_Terminübersicht
             //View neu aufbauen
             fBuildView();
         }
+
+        private void btnShowCurrentWeek_Click(object sender, EventArgs e)
+        {
+            // Aktualisieren des DataGrids anhand der neuen Woche
+            DateTime CurrentMonday = DateTime.Now;
+            fGetCurrWeek(CurrentMonday.Date, false);
+
+            for (int i = 0; i < 19; i++)
+            {
+                //Aktuelle Zeilen entfernen, da sonst irgendwann eine Endlosliste entsteht...
+                this.dgAppointment.Rows.RemoveAt(0);
+            }
+            //View neu aufbauen
+            fBuildView();
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            // Aktualisieren des DataGrids anhand der neuen Woche
+            DateTime CurrentMonday = Convert.ToDateTime(this.txtMondayOfWeek.Text);
+            fGetCurrWeek(CurrentMonday.Date.AddDays(-7), false);
+
+            for (int i = 0; i < 19; i++)
+            {
+                //Aktuelle Zeilen entfernen, da sonst irgendwann eine Endlosliste entsteht...
+                this.dgAppointment.Rows.RemoveAt(0);
+            }
+            //View neu aufbauen
+            fBuildView();
+
+        }
+
+            //private void dgAppointment_CellMouseHover(object sender, DataGridViewCellEventArgs e)
+            //{
+            //    foreach (DataGridCell zelle in dgAppointment)
+
+            //this.dgAppointment.Rows[0].Cells[0] = "TexT";
+            ////lblTitel, lblDate, lblTime, lblKTK, txtAPTDesc
+            //}
     }
 }
