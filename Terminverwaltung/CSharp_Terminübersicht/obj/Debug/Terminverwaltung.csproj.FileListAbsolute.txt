@@ -50,4 +50,3 @@ C:\Users\Castiel\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminüb
 C:\Users\Castiel\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.hub.resources
 C:\Users\Castiel\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.Properties.Resources.resources
 C:\Users\Castiel\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\Terminverwaltung.csproj.GenerateResource.Cache
-C:\Users\Castiel\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\Terminverwaltung.csprojResolveAssemblyReference.cache

@@ -280,12 +280,22 @@ namespace CSharp_Terminübersicht
 
         }
 
-            //private void dgAppointment_CellMouseHover(object sender, DataGridViewCellEventArgs e)
-            //{
-            //    foreach (DataGridCell zelle in dgAppointment)
+            private void dgAppointment_CellMouseMove(object sender, DataGridViewCellEventArgs e)
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                {
+                    lblTitel.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                    //lblDate.Text = Covert.ToString();
+                }
+            }
+            private void dgAppointment_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                {
+                    this.lblTitel.Text = "-";   
+                }
+            }
+            }
 
-            //this.dgAppointment.Rows[0].Cells[0] = "TexT";
-            ////lblTitel, lblDate, lblTime, lblKTK, txtAPTDesc
-            //}
+           
     }
-}
