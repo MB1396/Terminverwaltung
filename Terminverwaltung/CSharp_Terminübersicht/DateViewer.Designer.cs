@@ -79,6 +79,8 @@
             this.dgAppointment.Name = "dgAppointment";
             this.dgAppointment.Size = new System.Drawing.Size(836, 462);
             this.dgAppointment.TabIndex = 0;
+            this.dgAppointment.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAppointment_CellMouseLeave);
+            this.dgAppointment.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgAppointment_CellMouseMove);
             // 
             // cloTime
             // 

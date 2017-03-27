@@ -279,21 +279,30 @@ namespace CSharp_Terminübersicht
             fBuildView();
 
         }
-
-            private void dgAppointment_CellMouseMove(object sender, DataGridViewCellEventArgs e)
-            {
-                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-                {
-                    lblTitel.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
-                    //lblDate.Text = Covert.ToString();
-                }
-            }
             private void dgAppointment_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
             {
+                
                 if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
                 {
                     this.lblTitel.Text = "-";   
                 }
+            }
+
+            private void dgAppointment_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    //lblDate, lblTime, lblKTK, txtAPTDesc
+                    this.lblTitel.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                    this.lblDate.Text = "datum";
+                    this.lblTime.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[0].Value);
+                }
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                {
+                    lblTitel.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value) + " Uhr";
+                    //lblDate.Text = Covert.ToString();
+                }
+
             }
             }
 
