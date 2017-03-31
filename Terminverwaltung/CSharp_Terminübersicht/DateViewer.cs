@@ -299,6 +299,8 @@ namespace CSharp_Terminübersicht
                     this.lblTitel.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
                     this.lblDate.Text = Cellday.ToString("dd.MM.yyyy");
                     this.lblTime.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[0].Value) + " Uhr";
+                    //this.lblKTK.Text = 
+                    this.txtAPTDesc.Text = "";
                 }
                 if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null)
                 {
