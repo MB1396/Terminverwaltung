@@ -293,13 +293,12 @@ namespace CSharp_Terminübersicht
                 DateTime CurrentMonday = Convert.ToDateTime(this.txtMondayOfWeek.Text);
                 DateTime Cellday = CurrentMonday.Date.AddDays(e.ColumnIndex);
 
-                if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && e.ColumnIndex > 0)
                 {
-                    //lblDate, lblTime, lblKTK, txtAPTDesc
+                    //lblKTK, txtAPTDesc
                     this.lblTitel.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
                     this.lblDate.Text = Convert.ToString(Cellday.Date);
                     this.lblTime.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[0].Value) + " Uhr";
-                    //this.lblTime.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[0].Value);
                 }
                 if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null)
                 {
