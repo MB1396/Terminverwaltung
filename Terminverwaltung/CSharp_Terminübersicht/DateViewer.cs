@@ -290,17 +290,22 @@ namespace CSharp_Terminübersicht
 
             private void dgAppointment_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
             {
+                DateTime CurrentMonday = Convert.ToDateTime(this.txtMondayOfWeek.Text);
+                DateTime Cellday = CurrentMonday.Date.AddDays(e.ColumnIndex);
+
                 if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
                 {
                     //lblDate, lblTime, lblKTK, txtAPTDesc
                     this.lblTitel.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
-                    this.lblDate.Text = "datum";
-                    this.lblTime.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[0].Value);
+                    this.lblDate.Text = Convert.ToString(Cellday.Date);
+                    this.lblTime.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[0].Value) + " Uhr";
+                    //this.lblTime.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[0].Value);
                 }
-                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null)
                 {
-                    lblTitel.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value) + " Uhr";
-                    //lblDate.Text = Covert.ToString();
+                    this.lblTitel.Text = "-";
+                    this.lblDate.Text = "-";
+                    this.lblTime.Text = "-";
                 }
 
             }

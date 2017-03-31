@@ -59,3 +59,4 @@ C:\Users\MBrinkmann.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Te
 C:\Users\MBrinkmann.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.hub.resources
 C:\Users\MBrinkmann.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.Properties.Resources.resources
 C:\Users\MBrinkmann.BKH\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\Terminverwaltung.csproj.GenerateResource.Cache
+C:\Users\brinkmann\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\bin\Debug\DB_Termine.accdb
