@@ -60,6 +60,8 @@
             this.txtdWeekEnd = new System.Windows.Forms.TextBox();
             this.txtMondayOfWeek = new System.Windows.Forms.TextBox();
             this.btnShowCurrentWeek = new System.Windows.Forms.Button();
+            this.txtKTK_KeyForAPT = new System.Windows.Forms.TextBox();
+            this.txtAPT_Key = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgAppointment)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +81,7 @@
             this.dgAppointment.Name = "dgAppointment";
             this.dgAppointment.Size = new System.Drawing.Size(836, 462);
             this.dgAppointment.TabIndex = 0;
-            this.dgAppointment.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAppointment_CellMouseLeave);
+            this.dgAppointment.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgAppointment_CellMouseClick);
             this.dgAppointment.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgAppointment_CellMouseMove);
             // 
             // cloTime
@@ -338,11 +340,29 @@
             this.btnShowCurrentWeek.UseVisualStyleBackColor = true;
             this.btnShowCurrentWeek.Click += new System.EventHandler(this.btnShowCurrentWeek_Click);
             // 
+            // txtKTK_KeyForAPT
+            // 
+            this.txtKTK_KeyForAPT.Location = new System.Drawing.Point(963, 193);
+            this.txtKTK_KeyForAPT.Name = "txtKTK_KeyForAPT";
+            this.txtKTK_KeyForAPT.Size = new System.Drawing.Size(35, 20);
+            this.txtKTK_KeyForAPT.TabIndex = 33;
+            this.txtKTK_KeyForAPT.Visible = false;
+            // 
+            // txtAPT_Key
+            // 
+            this.txtAPT_Key.Location = new System.Drawing.Point(1004, 193);
+            this.txtAPT_Key.Name = "txtAPT_Key";
+            this.txtAPT_Key.Size = new System.Drawing.Size(33, 20);
+            this.txtAPT_Key.TabIndex = 34;
+            this.txtAPT_Key.Visible = false;
+            // 
             // DateViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1146, 534);
+            this.Controls.Add(this.txtAPT_Key);
+            this.Controls.Add(this.txtKTK_KeyForAPT);
             this.Controls.Add(this.btnShowCurrentWeek);
             this.Controls.Add(this.txtMondayOfWeek);
             this.Controls.Add(this.txtdWeekEnd);
@@ -409,5 +429,7 @@
         private System.Windows.Forms.TextBox txtdWeekEnd;
         private System.Windows.Forms.TextBox txtMondayOfWeek;
         private System.Windows.Forms.Button btnShowCurrentWeek;
+        private System.Windows.Forms.TextBox txtKTK_KeyForAPT;
+        private System.Windows.Forms.TextBox txtAPT_Key;
     }
 }

@@ -35,9 +35,9 @@ namespace CSharp_Terminübersicht
             try
             {
                 cmd = new OleDbCommand("     Select Termine.*, Kontakte.KTK_Name, Kontakte.KTK_Vorname " +
-                                       "       From Termine " + 
+                                       "       From Termine " +
                                        " Inner Join Kontakte On Kontakte.KTK_Key = Termine.KTK_Key " +
-                                       "      Where APT_dDate >= CDate('" + Convert.ToDateTime(this.txtdWeekStart.Text) + "') " + 
+                                       "      Where APT_dDate >= CDate('" + Convert.ToDateTime(this.txtdWeekStart.Text) + "') " +
                                        "        AND APT_dDate <= CDate('" + Convert.ToDateTime(this.txtdWeekEnd.Text) + "')", connection.getConn());
                 //MessageBox.Show(cmd.CommandText.ToString());
                 rder = cmd.ExecuteReader();
@@ -100,7 +100,7 @@ namespace CSharp_Terminübersicht
                                 }
                             }
                         }
-                            
+
                     }
                 }
             }
@@ -245,6 +245,7 @@ namespace CSharp_Terminübersicht
                 //Aktuelle Zeilen entfernen, da sonst irgendwann eine Endlosliste entsteht...
                 this.dgAppointment.Rows.RemoveAt(0);
             }
+            fClear();
             //View neu aufbauen
             fBuildView();
         }
@@ -260,6 +261,7 @@ namespace CSharp_Terminübersicht
                 //Aktuelle Zeilen entfernen, da sonst irgendwann eine Endlosliste entsteht...
                 this.dgAppointment.Rows.RemoveAt(0);
             }
+            fClear();
             //View neu aufbauen
             fBuildView();
         }
@@ -275,42 +277,118 @@ namespace CSharp_Terminübersicht
                 //Aktuelle Zeilen entfernen, da sonst irgendwann eine Endlosliste entsteht...
                 this.dgAppointment.Rows.RemoveAt(0);
             }
+            fClear();
             //View neu aufbauen
             fBuildView();
 
         }
-            private void dgAppointment_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        //private void dgAppointment_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        //{
+
+        //    if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+        //    {
+        //        this.lblTitel.Text = "-";
+        //    }
+        //}
+
+        private void dgAppointment_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //DateTime CurrentMonday = Convert.ToDateTime(this.txtMondayOfWeek.Text);
+            //DateTime Cellday = CurrentMonday.Date.AddDays(e.ColumnIndex -1);
+
+            //if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && e.ColumnIndex > 0)
+            //{
+            //    //lblKTK, txtAPTDesc
+            //    this.lblTitel.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+            //    this.lblDate.Text = Cellday.ToString("dd.MM.yyyy");
+            //    this.lblTime.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[0].Value) + " Uhr";
+            //    //this.lblKTK.Text = 
+            //    this.txtAPTDesc.Text = "";
+            //}
+            //if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null)
+            //{
+            //    this.lblTitel.Text = "-";
+            //    this.lblDate.Text = "-";
+            //    this.lblTime.Text = "-";
+            //}
+        }
+
+        private void dgAppointment_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string[] KTKtmp;
+            string strSQLPRS, strSQLAPT, time, tmpVal;
+            DateTime date, MondayOfWeek = Convert.ToDateTime(this.txtMondayOfWeek.Text), tmpDate;
+            int KTK_Key = 0;
+            OleDbCommand cmdFI;
+            OleDbDataReader rderFI;
+
+            try
             {
-                
-                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                if (dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != "")
                 {
-                    this.lblTitel.Text = "-";   
+                    KTKtmp = dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString().Split(',');
+                    KTKtmp[0] = KTKtmp[0].Trim();
+                    KTKtmp[1] = KTKtmp[1].Trim();
+
+                    strSQLPRS = "Select KTK_Key From Kontakte Where KTK_Vorname Like '" + KTKtmp[1] + "' AND KTK_Name Like '" + KTKtmp[0] + "'";
+                    //MessageBox.Show(strSQLPRS);
+                    cmdFI = new OleDbCommand(strSQLPRS, connection.getConn()); 
+
+                    rderFI = cmdFI.ExecuteReader();
+                    while (rderFI.Read())
+                    { KTK_Key = Convert.ToInt32(rderFI.GetValue(0)); }
+
+                    rderFI.Close();
+
+                    if(KTK_Key > 0)
+                    {
+                        date = MondayOfWeek.Date.AddDays(e.ColumnIndex -1);
+                        time = dgAppointment.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        strSQLAPT = " Select APT_Key, APT_dDate, APT_Note " + 
+                                    "   From Termine " + 
+                                    "  Where KTK_Key = " + KTK_Key + 
+                                    "    AND APT_dDate = CDate('" + Convert.ToDateTime(date.AddHours(Convert.ToInt32(time.Substring(0, 2)))) + "')";
+                        cmdFI = new OleDbCommand(strSQLAPT, connection.getConn());
+                        rderFI = cmdFI.ExecuteReader();
+
+                        while(rderFI.Read())
+                        {
+                            this.lblTitel.Text = "Termin für " + KTKtmp[0] + ", " + KTKtmp[1];
+                            this.lblDate.Text = rderFI.GetValue(1).ToString().Substring(0, 10);
+                            this.lblTime.Text = rderFI.GetValue(1).ToString().Substring(11, 5) + " Uhr";
+                            this.lblKTK.Text = KTKtmp[0] + ", " + KTKtmp[1];
+                            this.txtAPTDesc.Text = rderFI.GetValue(2).ToString();
+
+                            this.txtAPT_Key.Text = rderFI.GetValue(0).ToString();
+                            this.txtKTK_KeyForAPT.Text = KTK_Key.ToString();
+                        }
+                        
+                    }
+                    else
+                    {
+                        throw new ArgumentNullException("Person mit dem Key '" + KTK_Key.ToString() + "' nicht gefunden");
+                    }
+                }
+                else
+                {
+                    fClear();
                 }
             }
-
-            private void dgAppointment_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+            catch (Exception ex)
             {
-                DateTime CurrentMonday = Convert.ToDateTime(this.txtMondayOfWeek.Text);
-                DateTime Cellday = CurrentMonday.Date.AddDays(e.ColumnIndex);
-
-                if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && e.ColumnIndex > 0)
-                {
-                    //lblKTK, txtAPTDesc
-                    this.lblTitel.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
-                    this.lblDate.Text = Cellday.ToString("dd.MM.yyyy");
-                    this.lblTime.Text = Convert.ToString(dgAppointment.Rows[e.RowIndex].Cells[0].Value) + " Uhr";
-                    //this.lblKTK.Text = 
-                    this.txtAPTDesc.Text = "";
-                }
-                if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && dgAppointment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null)
-                {
-                    this.lblTitel.Text = "-";
-                    this.lblDate.Text = "-";
-                    this.lblTime.Text = "-";
-                }
-
+                MessageBox.Show(ex.Message);
             }
-            }
+        }
 
-           
+
+        private void fClear()
+        {
+            this.lblTitel.Text = ".";
+            this.lblDate.Text = ".";
+            this.lblTime.Text = ".";
+            this.lblKTK.Text = ".";
+            this.txtAPTDesc.Text = "";
+        }
+
     }
+}

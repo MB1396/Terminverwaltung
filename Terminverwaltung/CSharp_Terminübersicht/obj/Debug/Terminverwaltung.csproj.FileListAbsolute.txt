@@ -60,3 +60,16 @@ C:\Users\brinkmann\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Termin�
 C:\Users\brinkmann\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.exe
 C:\Users\brinkmann\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.pdb
 C:\Users\brinkmann\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\bin\Debug\CSharp_Terminübersicht.pdb
+C:\Users\Pascal\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\bin\Debug\CSharp_Terminübersicht.exe.config
+C:\Users\Pascal\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\bin\Debug\DB_Termine.accdb
+C:\Users\Pascal\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\bin\Debug\CSharp_Terminübersicht.exe
+C:\Users\Pascal\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\bin\Debug\CSharp_Terminübersicht.pdb
+C:\Users\Pascal\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.Contacts.resources
+C:\Users\Pascal\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.DateViewer.resources
+C:\Users\Pascal\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.Termin.resources
+C:\Users\Pascal\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.hub.resources
+C:\Users\Pascal\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.Properties.Resources.resources
+C:\Users\Pascal\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\Terminverwaltung.csproj.GenerateResource.Cache
+C:\Users\Pascal\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.exe
+C:\Users\Pascal\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\CSharp_Terminübersicht.pdb
+C:\Users\Pascal\Source\Repos\Terminverwaltung\Terminverwaltung\CSharp_Terminübersicht\obj\Debug\Terminverwaltung.csprojResolveAssemblyReference.cache
